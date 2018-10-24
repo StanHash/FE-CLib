@@ -1,5 +1,5 @@
 
-This is a set a C headers along with reference object sources for the purpose of hacking FE8. Only a FE8U reference is available for now, but adding a FE8J reference is feasible.
+This is a set a C headers along with reference object sources for the purpose of writing FE8 wizardry. Only a FE8U reference is available for now, but adding a FE8J reference is feasible.
 
 Much like [the python tools](https://github.com/StanHash/FE-PyTools), this was previously located within [FE-CHAX](https://github.com/StanHash/FE-CHAX). This is now being moved in its own repository since I will start using it in other projects too (namely in my [port of VBA to make/EA](https://github.com/StanHash/VBA-MAKE)).
 
