@@ -47,6 +47,8 @@ Proc* StartBottomHelpText(Proc*, const char*); //! FE8U = 0x8035709
 void EndBottomHelpText(void); //! FE8U = 0x8035749
 int IsBottomHelpTextActive(void); //! FE8U = 0x8035759
 
+void MakeUIWindowTileMap_BG0BG1(int x, int y, int w, int h, int style); //! FE8U = 0x804E369
+
 void StartStatScreen(const struct Unit* unit, struct Proc* parent); //! FE8U = 0x808894D
 
 // int div(int, int); // FE8U = (0x080D1AD4+1)

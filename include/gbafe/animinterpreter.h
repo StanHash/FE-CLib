@@ -39,6 +39,13 @@ extern u8 gBattleCharacterIndices[2]; //! FE8U = 0x203E190
 
 #pragma long_calls
 
+void AIS_ExecAll(void); //! FE8U = 0x8004E41
+void ClearAISArray(void); //! FE8U = 0x8004EB9
+struct AnimationInterpreter* AIS_Create(const u32* animScript, int depth); //! FE8U = 0x8004F49
+void AISArray_Sort(void); //! FE8U = 0x8004FAD
+void AIS_Free(struct AnimationInterpreter* ais); //! FE8U = 0x8005005
+void AIS_Display(struct AnimationInterpreter* ais); //! FE8U = 0x8005035
+
 int GetAISSubjectId(const struct AnimationInterpreter*); //! FE8U = 0x805A16D
 int IsBatteRoundTypeAMiss(u16); //! FE8U = 0x805A185
 int GetBattleAnimRoundType(int index); //! FE8U = 0x8058A0D
