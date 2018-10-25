@@ -7,27 +7,24 @@
 #pragma long_calls
 
 // TODO
-// SET_ABS_FUNC Sound_GetCurrentSong, 0x8002259
-// SET_ABS_FUNC Sound_IsSongPlaying, 0x8002265
-// SET_ABS_FUNC Sound_SetVolume_8002274, 0x8002275
-// SET_ABS_FUNC Sound_SetSongVolume, 0x80022ED
-// SET_ABS_FUNC Sound_FadeSongOut, 0x800231D
-// SET_ABS_FUNC Sound_FadeOut_800237C, 0x800237D
-// SET_ABS_FUNC Sound_FadeOut_80023E0, 0x80023E1
-// SET_ABS_FUNC Sound_PlaySong, 0x8002449
-// SET_ABS_FUNC Sound_PlaySongSmoothCommon, 0x8002479
-// SET_ABS_FUNC Sound_PlaySongSmooth, 0x80024D5
-// SET_ABS_FUNC Sound_PlaySongSmoothExt, 0x80024E5
-// SET_ABS_FUNC Sound_SongVolumeTransitionAProc_Loop, 0x80024F1
-// SET_ABS_FUNC StartSongVolumeTransitionB, 0x8002731
-// SET_ABS_FUNC Sound_SongVolumeTransitionBProc_Loop, 0x8002789
-// SET_ABS_FUNC Sound_PlaySoundDelayedProc_Loop, 0x800281D
-// SET_ABS_FUNC PlaySongDelayed, 0x8002859
-// SET_ABS_FUNC Sound_PlaySongCore, 0x8002891
-// SET_ABS_FUNC SetSoundDefaultMaxChannels, 0x80028D1
-// SET_ABS_FUNC SetSoundMaxChannels, 0x80028E9
-// SET_ABS_FUNC Sound_SetupMaxChannelsForSong, 0x80028FD
-// SET_ABS_FUNC CancelPlaySongDelayed, 0x8002AB9
+int Sound_GetCurrentSong(void); //! FE8U = 0x8002259
+s8 Sound_IsSongPlaying(void); //! FE8U = 0x8002265
+void Sound_SetVolume_8002274(int volume); //! FE8U = 0x8002275
+void Sound_SetSongVolume(int volume); //! FE8U = 0x80022ED
+void Sound_FadeSongOut(int speed); //! FE8U = 0x800231D
+void Sound_FadeOut_800237C(int speed); //! FE8U = 0x800237D
+void Sound_FadeOut_80023E0(int speed); //! FE8U = 0x80023E1
+void Sound_PlaySong(int songId, void* player); //! FE8U = 0x8002449 // TODO: struct MusicPlayerInfo
+void Sound_PlaySongSmoothCommon(int songId, int speed, void* player); //! FE8U = 0x8002479
+void Sound_PlaySongSmooth(int songId, void* player); //! FE8U = 0x80024D5
+void Sound_PlaySongSmoothExt(int songId, int speed, void* player); //! FE8U = 0x80024E5
+void StartSongVolumeTransitionB(int volume, int b, int c, struct Proc* parent); //! FE8U = 0x8002731
+void PlaySongDelayed(int songId, int delay, void* player); //! FE8U = 0x8002859
+void Sound_PlaySongCore(int songId, void* player); //! FE8U = 0x8002891
+void SetSoundDefaultMaxChannels(void); //! FE8U = 0x80028D1
+void SetSoundMaxChannels(int maxchn); //! FE8U = 0x80028E9
+void Sound_SetupMaxChannelsForSong(int songId); //! FE8U = 0x80028FD
+void CancelPlaySongDelayed(void); //! FE8U = 0x8002AB9
 
 // TODO: m4a header
 void m4aSongNumStart(int);

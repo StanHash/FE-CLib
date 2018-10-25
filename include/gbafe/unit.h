@@ -157,6 +157,9 @@ extern struct Unit* const gUnitLookup[]; //! FE8U = 0x859A5D0
 extern u8 gActiveUnitId; //! FE8U = 0x202BE44
 extern struct Vector2 gActiveUnitPosition; //! FE8U = 0x202BE48
 
+extern struct BattleUnit gSubjectBattleStruct; //! FE8U = 0x203A4EC
+extern struct BattleUnit gTargetBattleStruct; //! FE8U = 0x203A56C
+
 #pragma long_calls
 
 void ClearUnits(void); //! FE8U = 0x80177C5
@@ -259,6 +262,9 @@ const struct CharacterData* GetCharacterData(u8); //! FE8U = 0x8019465
 void RemoveUnitItem(struct Unit*, int slot); //! FE8U = 0x8019485
 
 int CanUnitCrossTerrain(const struct Unit*, u8 terrain); //! FE8U = 0x801949D
+
+int BattleUnit_ShouldDisplayWpnBroke(struct BattleUnit* bu); //! FE8U = 0x807A771
+int BattleUnit_ShouldDisplayWRankUp(struct BattleUnit* bu); //! FE8U = 0x802C1B1
 
 #pragma long_calls_off
 

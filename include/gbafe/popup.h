@@ -25,14 +25,39 @@ struct PopupProc {
 
 	/* 3B */ u8 textColorId;
 
+	/* 3C */ u16 _pad3C;
+
 	/* 3E */ u16 iconId;
 	/* 40 */ u16 iconObjTileId;
 	/* 42 */ u8  iconPalId;
+	/* 43 */ u8  _pad43;
 	/* 44 */ u8  iconX;
+	/* 45 */ u8  _pad45;
 
 	/* 46 */ u16 xGfxSize;
 
 	/* 48 */ u16 soundId;
 };
+
+extern struct Unit* gpPopupUnit;
+extern u16 gPopupItem;
+extern u32 gPopupNumber;
+
+extern struct Proc* gpPopup6C; //! FE8U = 0x2020140
+extern int gBoolPopupEnded; //! FE8U = 0x2020144
+
+#pragma long_calls
+
+void SetPopupUnit(struct Unit* unit); //! FE8U = 0x8011451
+void SetPopupItem(u16 item); //! FE8U = 0x801145D
+void SetPopupNumber(u32 number); //! FE8U = 0x8011469
+void NewPopupSimple(const u32* def, int time, int winStyle, struct Proc* parent); //! FE8U = 0x8011475
+// NewPopup; //! FE8U = 0x8011491
+
+#pragma long_calls_off
+
+// ¯\_(ツ)_/¯
+#define SetPopupWType SetPopupItem
+#define gPopupWType gPopupItem
 
 #endif // GBAFE_POPUP_H

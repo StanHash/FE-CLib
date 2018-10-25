@@ -22,10 +22,14 @@ extern const ProcCode gProc_BG3HSlide[];
 
 extern const u16 gPal_MiscUIGraphics[];
 
+extern u16 gSomethingRelatedToAnimAndDistance; //! FE8U = 0x203E120
+
 #pragma long_calls
 
 char* GetStringFromIndex(int index); //! FE8U = 0x800A241
 char* GetStringFromIndexInBuffer(int index, char* buffer); //! FE8U = 0x800A281
+
+int String_FromNumber(int number, char* buffer); //! FE8U = 0x8014335
 
 void SetCursorMapPosition(int x, int y); //! FE8U = 0x8015BBD
 
