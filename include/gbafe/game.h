@@ -3,6 +3,37 @@
 
 // Rename to bm.h? Since it corresponds to bm.c from the proto
 
+#include "common.h"
+
+struct BattleMapState {
+	/* 00 */ u8 boolMainLoopEnded; // Used by vblank handler to detect "lag"
+	/* 01 */ u8 proc2LockCount;
+	/* 02 */ u8 gfxLockCount;
+	/* 03 */ u8 _unk03;
+	/* 04 */ u8 statebits; // TODO: enumerate bits
+	/* 06 */ u16 savedVCount;
+	/* 08 */ u32 _unk08;
+	/* 0C */ struct Vector2U cameraRealPos;
+	/* 10 */ struct Vector2U _unk10;
+	/* 14 */ struct Vector2U cursorMapPos;
+	/* 18 */ struct Vector2U cursorMapPosPrev;
+	/* 1C */ struct Vector2U _unk1C;
+	/* 20 */ struct Vector2U cursorDisplayRealPos;
+	/* 24 */ struct Vector2 _unk24;
+	/* 28 */ u8 _pad28[0x3C - 0x28];
+	/* 3C */ u8 _unk3C;
+	/* 3D */ u8 partialActionTaken; // bits
+};
+
+enum {
+	PARTIAL_ACTION_RESCUE_TRANSFER = (1 << 0), // Give/Take
+	PARTIAL_ACTION_TRADE           = (1 << 1), // Trade (unless no inventory change)
+	PARTIAL_ACTION_SUPPLY          = (1 << 2), // Supply (unless no inventory change)
+	PARTIAL_ACTION_BALLISTA_RIDE   = (1 << 3), // Ride/Exit
+};
+
+extern struct BattleMapState gGameState;
+
 #pragma long_calls
 
 int GetGameClock(void); //! FE8U = 0x8000D29
