@@ -82,7 +82,7 @@ void AiDecisionMaker_SpecialItems(void);
 
 void AiFillMovementMapForUnit(struct Unit*);
 int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vector2* out);
-void SetAiActionParameters(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
+void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
 
 #pragma long_calls_off
 

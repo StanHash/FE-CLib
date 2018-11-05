@@ -53,12 +53,12 @@ void RevertMapChangesById(int id); //! FE8U = 0x801A2ED
 
 void FillMovementMapForUnit(const struct Unit*); //! FE8U = 0x801A38D
 void FillMovementMapForUnitAndMovement(const struct Unit*, int movement); //! FE8U = 0x801A3CD
-void FillMovementMapForUnitPosition(const struct Unit*); //! FE8U = 0x801A409
-void FillMovementRangeMapForPosition(int x, int y, const u8 costTable[]); //! FE8U = 0x801A43D
-void FillMovementMapForPosition(int x, int y, const u8 costTable[]); //! FE8U = 0x801A46D
-void FillMovementMapForUnitAt(const struct Unit*, int x, int y, int movement); //! FE8U = 0x801A49D
-void StoreMovCostTable(const u8 table[]); //! FE8U = 0x801A4CD
-void FillMovementMap(int x, int y, int movement, u8 unitIndex); //! FE8U = 0x801A4ED
+void MapMovementFillMovementFromUnit(const struct Unit*); //! FE8U = 0x801A409
+void MapRangeFillMovementFromPosition(int x, int y, const u8 costTable[]); //! FE8U = 0x801A43D
+void MapMovementFillMovementFromPosition(int x, int y, const u8 costTable[]); //! FE8U = 0x801A46D
+void MapFillMovementFromUnitAt(const struct Unit*, int x, int y, int movement); //! FE8U = 0x801A49D
+void SetMovCostTable(const u8 table[]); //! FE8U = 0x801A4CD
+void MapFillMovement(int x, int y, int movement, u8 unitIndex); //! FE8U = 0x801A4ED
 
 void ProcessUnitMovement(struct Unit*, int xStart, int yStart); //! FE8U = 0x801A82D
 

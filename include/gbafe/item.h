@@ -49,7 +49,7 @@ extern const ItemData gItemData[];
 
 #pragma long_calls
 
-char* GetItemSomeString(Item, int capitalized); //! FE8U = (0x0801618C+1)
+char* GetItemStringWithArticle(Item, int capitalized); //! FE8U = (0x0801618C+1)
 
 int GetItemHealthBonus(Item); //! FE8U = (0x080163F0+1)
 int GetItemPowerBonus(Item); //! FE8U = (0x08016420+1)
@@ -59,7 +59,7 @@ int GetItemDefenseBonus(Item); //! FE8U = (0x080164B0+1)
 int GetItemResistanceBonus(Item); //! FE8U = (0x080164E0+1)
 int GetItemLuckBonus(Item); //! FE8U = (0x08016510+1)
 
-Item NewItem(u8 id); //! FE8U = (0x08016540+1)
+Item MakeItem(u8 id); //! FE8U = (0x08016540+1)
 
 int CanUnitWieldWeapon(const struct Unit*, Item); //! FE8U = (0x08016574+1)
 int CanUnitUseWeapon(const struct Unit*, Item); //! FE8U = (0x08016750+1)
@@ -103,7 +103,7 @@ int GetConvoyTotalGoldValue(); //! FE8U = 0x801737D
 
 u8 GetItemIndex(Item); //! FE8U = 0x80174ED
 char* GetItemNameString(Item); //! FE8U = 0x80174F5
-int GetItemDescTextIndex(Item); //! FE8U = 0x8017519
+int GetItemDescStringIndex(Item); //! FE8U = 0x8017519
 int GetItemUseDescTextIndex(Item); //! FE8U = 0x8017531
 int GetItemWType(Item); //! FE8U = 0x8017549
 u32 GetItemAttributes(Item); //! FE8U = 0x801756D
@@ -119,7 +119,7 @@ int GetItemMaxRange(Item); //! FE8U = 0x8017685
 int GetItemRange(Item); //! FE8U = 0x80176A1
 int GetItemWRank(Item); //! FE8U = 0x80176B9
 u8* GetItemEffectivenessPtr(Item); //! FE8U = 0x80176D1
-u8* GetItemStatBonusesPointer(Item); //! FE8U = 0x80176E9
+u8* GetItemStatBonuses(Item); //! FE8U = 0x80176E9
 int GetItemIconId(Item); //! FE8U = 0x8017701
 int GetItemWeaponEffect(Item); //! FE8U = 0x8017725
 int GetItemUseEffect(Item); //! FE8U = 0x801773D

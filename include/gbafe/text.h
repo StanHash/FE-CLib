@@ -89,7 +89,7 @@ unsigned GetStringTextWidth(const char*); //! FE8U = 0x8003EDD
 const char* GetCharTextWidth(const char* in, unsigned* out); //! FE8U = 0x8003F3D
 unsigned GetStringTextCenteredPos(const char*); //! FE8U = 0x8003F91
 
-const char* String_GetEnd(const char*); //! FE8U = 0x8003FF5
+const char* String_GetNextLine(const char*); //! FE8U = 0x8003FF5
 
 void Text_AppendString(TextHandle*, const char*); //! FE8U = 0x8004005
 void Text_AppendDecNumber(TextHandle*, int); //! FE8U = 0x8004075

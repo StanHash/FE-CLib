@@ -157,8 +157,8 @@ extern struct Unit* const gUnitLookup[]; //! FE8U = 0x859A5D0
 extern u8 gActiveUnitId; //! FE8U = 0x202BE44
 extern struct Vector2 gActiveUnitPosition; //! FE8U = 0x202BE48
 
-extern struct BattleUnit gSubjectBattleStruct; //! FE8U = 0x203A4EC
-extern struct BattleUnit gTargetBattleStruct; //! FE8U = 0x203A56C
+extern struct BattleUnit gActiveBattleUnit; //! FE8U = 0x203A4EC
+extern struct BattleUnit gTargetBattleUnit; //! FE8U = 0x203A56C
 
 #pragma long_calls
 
@@ -184,11 +184,11 @@ int UnitHasItem(const struct Unit*, u16); //! FE8U = 0x80179F9
 int LoadUnits(const struct EventUnit[]); //! FE8U = 0x8017A35
 int HasClassWRank(u8); //! FE8U = 0x8017A8D
 struct Unit* LoadUnit(const struct EventUnit*); //! FE8U = 0x8017AC5
-void StoreNewUnitFromCode(struct Unit*, const struct EventUnit*); //! FE8U = 0x8017D3D
+void PopulateUnitFromDefinition(struct Unit*, const struct EventUnit*); //! FE8U = 0x8017D3D
 void CharFillInventoryFromCode(struct Unit*, const struct EventUnit*); //! FE8U = 0x8017DF9
 void LoadUnitStats(struct Unit*, const struct CharacterData*); //! FE8U = 0x8017E35
 void FixROMUnitStructPtr(struct Unit*); //! FE8U = 0x8017EBD
-void LoadUnitSupports(struct Unit*); //! FE8U = 0x8017EF5
+void InitUnitSupports(struct Unit*); //! FE8U = 0x8017EF5
 void AutolevelUnitWeaponRanks(struct Unit*); //! FE8U = 0x8017F21
 void IncreaseUnitStatsByLevelCount(struct Unit*, int, int); //! FE8U = 0x8017FC5
 void RecomputeUnitStatsForLevelPenalty(struct Unit*, int, int); //! FE8U = 0x8018065
@@ -198,7 +198,7 @@ void AutolevelRealistic(struct Unit*); //! FE8U = 0x8018161
 void EnsureNoUnitStatCapOverflow(struct Unit*); //! FE8U = 0x80181C9
 
 struct Unit* GetUnitByCharId(u8); //! FE8U = 0x801829D
-struct Unit* GetNonAllyUnitStructById(u8, enum UnitAllegiance); //! FE8U = 0x80182D9
+struct Unit* GetUnitByCharIdAndAllegiance(u8, enum UnitAllegiance); //! FE8U = 0x80182D9
 
 int CanUnitRescue(const struct Unit*, const struct Unit*); //! FE8U = 0x801831D
 void UnitRescue(struct Unit*, struct Unit*); //! FE8U = 0x801834D

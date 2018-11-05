@@ -42,6 +42,7 @@ extern "C" {
 #include "gbafe/other.h"
 #include "gbafe/popup.h"
 #include "gbafe/icon.h"
+#include "gbafe/sram.h"
 
 #ifdef __cplusplus
 } // extern "C"

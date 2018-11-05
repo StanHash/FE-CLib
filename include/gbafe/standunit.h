@@ -15,7 +15,7 @@ struct SMSHandle {
 
 #pragma long_calls
 
-unsigned GetUnitSpritePaletteIndexWrapper(const struct Unit*); //! FE8U = 0x802713D
+unsigned GetUnitBattleMapSpritePaletteIndex(const struct Unit*); //! FE8U = 0x802713D
 unsigned GetUnitMapSpritePaletteIndex(const struct Unit*); //! FE8U = 0x8027169
 
 void SMS_UpdateFromGameData(void); //! FE8U = (0x80271A1)

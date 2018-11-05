@@ -26,8 +26,8 @@ extern u16 gSomethingRelatedToAnimAndDistance; //! FE8U = 0x203E120
 
 #pragma long_calls
 
-char* GetStringFromIndex(int index); //! FE8U = 0x800A241
-char* GetStringFromIndexInBuffer(int index, char* buffer); //! FE8U = 0x800A281
+char* String_GetFromIndex(int index); //! FE8U = 0x800A241
+char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
 
 int String_FromNumber(int number, char* buffer); //! FE8U = 0x8014335
 
