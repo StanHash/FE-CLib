@@ -52,8 +52,6 @@ enum {
 	SBM_MAGIC2           = 0x200A,
 };
 
-#pragma long_calls
-
 void* GetSaveTargetAddress(int blockId);
 void* GetSaveSourceAddress(int blockId);
 
@@ -69,7 +67,5 @@ void SaveGeneralGameMetadata(struct SaveGlobalMetadata* buf);
 void GGM_SetCharacterKnown(unsigned charId, struct SaveGlobalMetadata* sgm);
 
 void UpdateLastUsedGameSaveSlot(int blockId);
-
-#pragma long_calls_off
 
 #endif // GBAFE_SAVE_H

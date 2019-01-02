@@ -31,8 +31,6 @@ struct APHandle {
 
 extern struct APHandle gAPArray[];
 
-#pragma long_calls
-
 struct APHandle* AP_Create(const void *definition, int depth); //! FE8U = (0x0800927C+1)
 void AP_Delete(struct APHandle* ap); //! FE8U = (0x080092A4+1)
 void AP_Update(struct APHandle* ap, u16 x, u16 y); //! FE8U = (0x080092BC+1)
@@ -44,7 +42,5 @@ void APProc_SetParameters(struct Proc* apProc, u16 x, u16 y, u16 tileBase); //! 
 void APProc_Delete(struct Proc*); //! FE8U = (0x080097B4+1)
 void APProc_DeleteAll(void); //! FE8U = (0x080097C0+1)
 int APProc_Exists(void); //! FE8U = (0x080097D1)
-
-#pragma long_calls_off
 
 #endif // GBAFE_AP_H

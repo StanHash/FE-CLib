@@ -24,8 +24,6 @@ extern const u16 gPal_MiscUIGraphics[];
 
 extern u16 gSomethingRelatedToAnimAndDistance; //! FE8U = 0x203E120
 
-#pragma long_calls
-
 char* String_GetFromIndex(int index); //! FE8U = 0x800A241
 char* String_GetFromIndexExt(int index, char* buffer); //! FE8U = 0x800A281
 
@@ -60,7 +58,5 @@ void StartStatScreen(const struct Unit* unit, struct Proc* parent); //! FE8U = 0
 
 void* memcpy(void* dest, const void* src, unsigned int count); //! FE8U = (0x080D1C0C+1)
 void* memset(void* dest, int ch, unsigned int count); //! FE8U = (0x080D1C6C+1)
-
-#pragma long_calls_off
 
 #endif // GBAFE_OTHER_H

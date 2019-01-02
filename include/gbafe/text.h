@@ -59,8 +59,6 @@ enum FontGlyphType {
 extern FontData gDefaultFontData;
 extern FontData* gpCurrentFont;
 
-#pragma long_calls
-
 void Font_InitDefault(void); //! FE8U = 0x8003C95
 void Font_InitForUI(FontData* pData, void* pVRAMTileRoot, u16 tileBase, int palIndex); //! FE8U = 0x8003CB9
 void Font_SetGlyphSet(FontGlyphType); //! FE8U = 0x8003CF5
@@ -121,7 +119,5 @@ unsigned GetStringTextWidthAscii(const char*); //! FE8U = 0x8004569
 void Font_InitForObj(FontData*, void* vram, int pal); //! FE8U = 0x800459D
 void Text_Init2DLine(TextHandle*); //! FE8U = 0x80045D9
 void Text_Fill2DLine(TextHandle*); //! FE8U = 0x80046B5
-
-#pragma long_calls_off
 
 #endif // GBAFE_TEXT_H

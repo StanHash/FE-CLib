@@ -58,8 +58,6 @@ extern Vector2U gTargetPosition; //! FE8U = 0x0203DDE8
 extern TargetEntry gTargetArray[]; //! FE8U = 0x0203DDEC
 extern unsigned int gTargetArraySize; //! FE8U = 0x0203E0EC
 
-#pragma long_calls
-
 void InitTargets(int x, int y); //! FE8U = 0x804F8A5
 void AddTarget(int x, int y, u8 unit, u8 trap); //! FE8U = 0x804F8BD
 void LinkTargets(void); //! FE8U = 0x804F911
@@ -89,7 +87,5 @@ void ForEachAdjacentPosition(int x, int y, void(*)(int, int)); //! FE8U = 0x8024
 
 int GenericSelection_BackToUM(TargetSelectionProc*, TargetEntry*); //! FE8U = 0x8022749
 int GenericSelection_BackToUM_CamWait(TargetSelectionProc*, TargetEntry*); //! FE8U = 0x802282D
-
-#pragma long_calls_off
 
 #endif // GBAFE_TARGETSELECT_H

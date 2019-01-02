@@ -74,8 +74,6 @@ struct Proc {
 
 #define PROC_YIELD PROC_SLEEP(0)
 
-#pragma long_calls
-
 Proc* StartProc(const ProcInstruction*, Proc*); //! FE8U = (0x08002C7C+1)
 Proc* StartBlockingProc(const ProcInstruction*, Proc*); //! FE8U = (0x08002CE0+1)
 void EndProc(Proc*); //! FE8U = (0x08002D6C+1)
@@ -94,8 +92,6 @@ void EndEachProcMarked(int); //! FE8U = (0x08003040+1)
 void EndEachProc(const ProcInstruction*); //! FE8U = (0x08003078+1)
 void BreakEachProcLoop(const ProcInstruction*); //! FE8U = (0x08003094+1)
 void SetProcCycleHandler(Proc*, void(*)(Proc*)); //! FE8U = (0x08003450+1)
-
-#pragma long_calls_off
 
 // compat with decomp
 

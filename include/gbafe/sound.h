@@ -4,8 +4,6 @@
 #include "common.h"
 #include "chapterdata.h"
 
-#pragma long_calls
-
 // TODO
 int Sound_GetCurrentSong(void); //! FE8U = 0x8002259
 s8 Sound_IsSongPlaying(void); //! FE8U = 0x8002265
@@ -28,8 +26,6 @@ void CancelPlaySongDelayed(void); //! FE8U = 0x8002AB9
 
 // TODO: m4a header
 void m4aSongNumStart(int);
-
-#pragma long_calls_off
 
 #define PlaySfx(aSongId) do { \
 	if (!gChapterData.muteSfxOption) \

@@ -46,15 +46,11 @@ extern u32 gPopupNumber;
 extern struct Proc* gpBattlePopupProc; //! FE8U = 0x2020140
 extern int gBattlePopupEnded; //! FE8U = 0x2020144
 
-#pragma long_calls
-
 void SetPopupUnit(struct Unit* unit); //! FE8U = 0x8011451
 void SetPopupItem(u16 item); //! FE8U = 0x801145D
 void SetPopupNumber(u32 number); //! FE8U = 0x8011469
 void Popup_Create(const u32* def, int time, int winStyle, struct Proc* parent); //! FE8U = 0x8011475
 // Popup_CreateExt; //! FE8U = 0x8011491
-
-#pragma long_calls_off
 
 // ¯\_(ツ)_/¯
 #define SetPopupWType SetPopupItem

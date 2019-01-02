@@ -5,11 +5,7 @@
 extern "C" {
 #endif
 
-#pragma long_calls
-
 #include "gba/gba.h"
-
-#pragma long_calls_off
 
 #include "gbafe/armfunc.h"
 #include "gbafe/random.h"

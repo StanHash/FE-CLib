@@ -8,6 +8,8 @@ Much like [the python tools](https://github.com/StanHash/FE-PyTools), this was p
 - Add the `include` directory to your include path, and include `gbafe.h` in the sources in which you may want to use FE8 stuff.
 - Build the *latest* corresponding reference object (sources in the `reference` directory) and link against it.
 
+_**Note**: as of 2019-01-02, I removed all `#pragma long_calls` from the headers. This means that you will have to rely on either compiler or linker flags if you need long calls to work._
+
 ## Reference objects
 
 I call "reference object" a relocatable object that only defines a series of global absolute symbols mapping names to addresses in a given game. For example, a reference object for FE8U will define a symbol named `gActiveUnit` with absolute value `03004E50`.

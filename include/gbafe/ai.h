@@ -67,8 +67,6 @@ extern AiDecitionMakerFunc gpAiDecisionMaker;
 extern const struct ProcInstruction gProc_CpOrder[];
 extern const struct ProcInstruction gProc_CpDecide[];
 
-#pragma long_calls
-
 // TODO: address comments for reference
 
 int MakeAiUnitQueue(void);
@@ -83,7 +81,5 @@ void AiDecisionMaker_SpecialItems(void);
 void AiFillMovementMapForUnit(struct Unit*);
 int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vector2* out);
 void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
-
-#pragma long_calls_off
 
 #endif // GBAFE_AI_H

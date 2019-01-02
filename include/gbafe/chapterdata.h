@@ -25,7 +25,23 @@ struct ChapterState {
 	/* 1B */ u8 mode;
 	/* 1C */ u8 unk1C[4]; // Weapon type lookup by weapon specifying which character ids may bypass the unusable bit????? (see FE8U:80174AC)
 
-	/* 20 */ char playerName[0x40 - 0x20]; // unused outside of link arena (was tactician name in FE7); Size unknown
+	/* 20 */ char playerName[0x2B - 0x20]; // unused outside of link arena (was tactician name in FE7); Size unknown
+
+	/* 2B */
+	u32 unk2B_1:1;
+	u32:0;
+
+	/* 2C */
+	u32 unk2C_1:1;
+	u32 unk2C_2:3;
+	u32 unk2C_5:9;
+	u32 unk2D_6:10;
+	u32 unk2E_8:5;
+
+	/* 30 */ u32 fundsTotalDifference;
+	/* 34 */ u32 unk34;
+
+	/* 38 */ u8 pad38[0x40 - 0x38];
 
 	// option byte 1 (of 3)
 	u32 unk40_1:1;
@@ -60,8 +76,5 @@ struct ChapterState {
 };
 
 extern struct ChapterState gChapterData; //! FE8U = (0x202BCF0)
-
-#pragma long_calls
-#pragma long_calls_off
 
 #endif // GBAFE_CHAPTERDATA_H

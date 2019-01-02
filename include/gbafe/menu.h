@@ -101,8 +101,6 @@ enum MenuEffect {
 	ME_END_AFTER = 0x80
 };
 
-#pragma long_calls
-
 // TODO: move to ui.h
 void UpdateHandCursor(int x, int y); //! FE8U = (0804E79C+1)
 
@@ -138,7 +136,5 @@ void MenuCallHelpBox(MenuProc*, u16 textId); //! FE8U = 0x804F581
 // MenuProc* StartMenu_AndDoSomethingCommands(const MenuDefinition*, int xScreen, int xLeft, int xRight); //! FE8U = 0x804F64D
 // void Menu_UpdateMovingCursorGfxPosition(MenuProc*, int, int*); //! FE8U = 0x804F6A5
 // void ClearMenuRelatedList(void); //! FE8U = 0x804F6F9
-
-#pragma long_calls_off
 
 #endif // GBAFE_MENU_H

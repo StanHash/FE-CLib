@@ -47,8 +47,6 @@ struct ItemData {
 
 extern const ItemData gItemData[];
 
-#pragma long_calls
-
 char* GetItemStringWithArticle(Item, int capitalized); //! FE8U = (0x0801618C+1)
 
 int GetItemHealthBonus(Item); //! FE8U = (0x080163F0+1)
@@ -128,9 +126,5 @@ int GetItemMaxCost(Item); //! FE8U = 0x801776D
 int GetItemWExp(Item); //! FE8U = 0x8017799
 
 const ItemData* GetItemData(u8); //! FE8U = 0x80177B1
-
-#pragma long_calls_off
-
-#define GetItemData GetItemData
 
 #endif // GBAFE_ITEM_H

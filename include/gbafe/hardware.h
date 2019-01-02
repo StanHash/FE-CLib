@@ -80,8 +80,6 @@ extern struct KeyStatusBuffer gKeyStatus; //! FE8U = 0x2024CC0
 
 #define BG_LOCATED_TILE(apBg, aXTile, aYTile) (&(apBg)[(aXTile) + (aYTile) * 0x20])
 
-#pragma long_calls
-
 void CopyToPaletteBuffer(const u16 src[], unsigned targetOffset, unsigned size); //! FE8U = 0x8000DB9
 
 void SyncLCDControl(void); //! FE8U = 0x8000E9D
@@ -142,10 +140,5 @@ void EnablePaletteSync(void); //! FE8U = 0x8001F95
 void DisablePaletteSync(void); //! FE8U = 0x8001FA1
 void EnableBgSyncByMask(u8 mask); //! FE8U = 0x8001FAD
 void EnableBgSyncByIndex(int bg); //! FE8U = 0x8001FBD
-
-#pragma long_calls_off
-
-// better names
-#define gLCDIOBuffer gLCDIOBuffer
 
 #endif // GBAFE_HARDWARE_H

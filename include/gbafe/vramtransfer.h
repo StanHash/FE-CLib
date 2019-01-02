@@ -16,8 +16,6 @@ extern const struct ObjData gOAM_16x16Obj;
 extern const struct ObjData gOAM_32x32Obj;
 extern const struct ObjData gOAM_16x32Obj;
 
-#pragma long_calls
-
 void ClearTileRegistry(void); //! FE8U = 0x8001FE1
 void RegisterTileGraphics(const void* source, void* target, unsigned size); //! FE8U = 0x8002015
 void RegisterFillTile(u32 value, void* target, unsigned size); //! FE8U = 0x8002055
@@ -37,8 +35,6 @@ void PushToHiOAM(u16 xBase, u16 yBase, const struct ObjData* data, u16 tileBase)
 void PushToLoOAM(u16 xBase, u16 yBase, const struct ObjData* data, u16 tileBase); //! FE8U = 0x8002BCD
 
 void ClearOAMBuffer(u16* buffer, unsigned size); //! FE8U = 0x80D7499
-
-#pragma long_calls_off
 
 // decomp compat
 #define CallARM_PushToSecondaryOAM PushToHiOAM

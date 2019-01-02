@@ -20,8 +20,6 @@ extern MapData gMapMovement2; //! FE8U = (0x0202E4F0)
 
 extern u16** const gMapRawTiles; //! FE8U = (0x0859A9D4)
 
-#pragma long_calls
-
 void InitChapterMap(u8 chapterIndex); //! FE8U = 0x80194BD
 void SetupMapRowPointers(void* pool, MapData* target, int width, int height); //! FE8U = 0x80197A5
 
@@ -73,7 +71,5 @@ void SetSubjectMap(MapData); //! FE8U = 0x801B999
 void MapIncInBoundedRange(int x, int y, int minRange, int maxRange); //! FE8U = 0x801B9A5
 
 u8 GetCurrentMovCostTable(void); //! FE8U = 0x801B9E5
-
-#pragma long_calls_off
 
 #endif // GBAFE_MAP_H

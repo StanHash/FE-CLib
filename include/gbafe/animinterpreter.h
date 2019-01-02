@@ -37,8 +37,6 @@ struct AnimationInterpreter {
 
 extern u8 gBattleCharacterIndices[2]; //! FE8U = 0x203E190
 
-#pragma long_calls
-
 void UpdateAISs(void); //! FE8U = 0x8004E41
 void ClearAISs(void); //! FE8U = 0x8004EB9
 struct AnimationInterpreter* CreateAIS(const u32* animScript, int depth); //! FE8U = 0x8004F49
@@ -51,7 +49,5 @@ int IsBatteRoundTypeAMiss(u16); //! FE8U = 0x805A185
 int GetBattleAnimRoundType(int index); //! FE8U = 0x8058A0D
 
 void StartEkrNamewinAppear(int, int, int);
-
-#pragma long_calls_off
 
 #endif // GBAFE_ANIMINTERPRETER_H

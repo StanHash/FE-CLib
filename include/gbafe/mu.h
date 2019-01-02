@@ -59,8 +59,6 @@ struct MoveUnitProc {
 	ProcState* pBlendTimerProc; // blend timer thing 6C pointer
 };
 
-#pragma long_calls
-
 void MU_Init(void); //! FE8U = (0x0807840C+1)
 struct MoveUnitProc* MU_CreateExt(struct Unit* unit, int mms, int palId); //! FE8U = (0x08078428+1)
 struct MoveUnitProc* MU_Create(struct Unit* unit); //! FE8U = (0x08078464+1)
@@ -81,7 +79,5 @@ void MU_StartActionAnim(struct MoveUnitProc* moveunit); //! FE8U = 0x80798B1
 void MU_Hide(struct MoveUnitProc* moveunit); //! FE8U = 0x80797D5
 void MU_Show(struct MoveUnitProc* moveunit); //! FE8U = 0x80797DD
 void MU_SetDisplayPosition(struct MoveUnitProc* moveunit, int x, int y); //! FE8U = (0x080797E4+1)
-
-#pragma long_calls_off
 
 #endif // GBAFE_MU_H

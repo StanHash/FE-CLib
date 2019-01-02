@@ -160,8 +160,6 @@ extern struct Vector2 gActiveUnitPosition; //! FE8U = 0x202BE48
 extern struct BattleUnit gActiveBattleUnit; //! FE8U = 0x203A4EC
 extern struct BattleUnit gTargetBattleUnit; //! FE8U = 0x203A56C
 
-#pragma long_calls
-
 void ClearUnits(void); //! FE8U = 0x80177C5
 void ClearUnit(struct Unit*); //! FE8U = 0x80177F5
 void CopyUnit(const struct Unit*, struct Unit*); //! FE8U = 0x801781D
@@ -265,7 +263,5 @@ int CanUnitCrossTerrain(const struct Unit*, u8 terrain); //! FE8U = 0x801949D
 
 int BattleUnit_ShouldDisplayWpnBroke(struct BattleUnit* bu); //! FE8U = 0x807A771
 int BattleUnit_ShouldDisplayWRankUp(struct BattleUnit* bu); //! FE8U = 0x802C1B1
-
-#pragma long_calls_off
 
 #endif // GBAFE_UNIT_H

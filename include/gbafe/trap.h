@@ -28,8 +28,6 @@ struct Trap {
 
 extern struct Trap gTrapArray[]; //! FE8U = (0x0203A614)
 
-#pragma long_calls
-
 struct Trap* GetTrapAt(int x, int y); //! FE8U = (0x0802E1F0+1)
 struct Trap* GetSpecificTrapAt(int x, int y, int type); //! FE8U = (0x0802E24C+1)
 
@@ -56,7 +54,5 @@ void UpdateUnitsUnderRoof(void); //! FE8U = (0x0802E690+1)
 // other file?
 void AddGorgonEggTrap(int a, int b, int c, int d, int e); //! FE8U = (0x08037928+1)
 struct Trap* AddBallista(int x, int y, int itemIndex); //! FE8U = (0x08037A04+1)
-
-#pragma long_calls_off
 
 #endif // GBAFE_TRAPS_H
