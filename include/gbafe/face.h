@@ -28,8 +28,8 @@ struct FaceProc {
 	/* 40 */ u8 faceSlotIndex;
 	/* 41 */ u8 objectDepth;
 
-	/* 44 */ Proc* _pu44Proc;
-	/* 48 */ Proc* pEyeWinkProc;
+	/* 44 */ struct Proc* _pu44Proc;
+	/* 48 */ struct Proc* pEyeWinkProc;
 };
 
 struct FaceGfxDefinition {
@@ -40,8 +40,8 @@ struct FaceGfxDefinition {
 const PortraitData* GetPortraitData(int portraitId); //! FE8U = 0x8005515
 void Face_Init(void); //! FE8U = 0x8005529
 void SetFaceGfxConfig(const FaceGfxDefinition[4]); //! FE8U = 0x8005545
-FaceProc* StartFace(int faceId, int portraitId, int x, int y, int idk); //! FE8U = 0x800563D
-void EndFace(FaceProc*); //! FE8U = 0x8005739
+struct FaceProc* StartFace(int faceId, int portraitId, int x, int y, int idk); //! FE8U = 0x800563D
+void EndFace(struct FaceProc*); //! FE8U = 0x8005739
 void EndFaceById(int index); //! FE8U = 0x8005759
 int ShouldPortraitBeSmol(int portraitId); //! FE8U = 0x8005C25
 

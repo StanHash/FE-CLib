@@ -1,8 +1,6 @@
 #ifndef GBAFE_AP_H
 #define GBAFE_AP_H
 
-// ap.c
-
 #include "common.h"
 #include "proc.h"
 
@@ -13,20 +11,20 @@ typedef struct APHandle AnimHandle;
 typedef struct APHandle TCStruct;
 
 struct APHandle {
-	const void* pDefinition; // Pointer to Definition "ROMTCS"
-	const void* pFrameData; // Pointer to Frame Data Ref (from ROMTCS)
-	const void* pAnimDataStart; // Pointer to Current Anim Data (Start, where you go back on loop)
-	const void* pAnimDataCurrent; // Pointer to Current Anim Data (Cursor)
-	const void* pCurrentFrameOAM; // Pointer to Current Frame/OAM Data
-	const void* pCurrentRotScale; // Pointer to Current Rot/Scale Data
-	u16 cycleClock; // Cycle Timer
-	u16 cycleTimeStep;	 // Cycle Time Step (0x100 is one frame)
-	u16 cycleOffset; // Sub frame time offset or something
-	u16 objectDepth; // OAM Index?
-	u8 gfxNeedsUpdate; // bool defining whether gfx needs update
-	u8 rotScaleIndex; // Rotation/Scale OAM Index
-	u16 OAMBase; // OAM Extra Data (Tile Index Root & OAM2 Stuff)
-	const void *pGraphics; // Gfx Pointer
+	/* 00 */ const u16* pDefinition;      // Pointer to Definition Root
+	/* 04 */ const u16* pFrameData;       // Pointer to Frame Data Array
+	/* 08 */ const u16* pAnimDataStart;   // Pointer to Current Anim Data (Start, where we go back on loop)
+	/* 0C */ const u16* pAnimDataCurrent; // Pointer to Current Anim Data (Cursor, where we are now)
+	/* 10 */ const u16* pCurrentObjData;  // Pointer to Current Obj Data
+	/* 14 */ const u16* pCurrentRotScale; // Pointer to Current Rot/Scale Data
+	/* 18 */ s16 frameTimer;              // Cycle Timer
+	/* 1A */ u16 frameInterval;           // Cycle Time Step (0x100 is one frame)
+	/* 1C */ u16 subframeTimer;           // Sub frame time offset or something
+	/* 1E */ u16 objLayer;                // HiObj layer
+	/* 20 */ u8  gfxNeedsUpdate;          // bool defining whether gfx needs update
+	/* 21 */ u8  rotScaleIndex;           // Rotation/Scale OAM Index
+	/* 22 */ u16 tileBase;                // OAM Extra Data (Tile Index Root & OAM2 Stuff)
+	/* 24 */ const void* pGraphics;       // Pointer to graphics (if any)
 };
 
 extern struct APHandle gAPArray[];

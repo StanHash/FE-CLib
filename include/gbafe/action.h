@@ -7,26 +7,29 @@ typedef struct ActionData ActionData;
 
 struct ActionData {
 	// unknown stuff (sometimes RNs are pushed here) (maybe an union?)
-	u16 _u00[6];
-	
-	u8 subjectIndex;
-	u8 targetIndex;
-	
-	u8 xMove;
-	u8 yMove;
-	
-	u8 moveCount;
-	
-	u8 actionIndex;
-	
+	/* 00 */ u16 _u00[3];
+	/* 06 */ u16 unk6;
+
+	/* 08 */ u16 unk08[2];
+
+	/* 0C */ u8 subjectIndex;
+	/* 0D */ u8 targetIndex;
+
+	/* 0E */ u8 xMove;
+	/* 0F */ u8 yMove;
+
+	/* 10 */ u8 moveCount;
+
+	/* 11 */ u8 unitActionType;
+
 	// maybe from this onwards it's an union?
-	
-	u8 itemSlotIndex;
-	
-	u8 xOther;
-	u8 yOther;
-	
-	u8 trapType;
+
+	/* 12 */ u8 itemSlotIndex;
+	/* 13 */ u8 xOther;
+	/* 14 */ u8 yOther;
+	/* 15 */ u8 trapType;
+
+	/* 16 */ u8 suspendPointType;
 };
 
 enum {
@@ -65,6 +68,19 @@ enum {
 	// 0x20?
 	UNIT_ACTION_RIDE_BALLISTA = 0x21,
 	UNIT_ACTION_EXIT_BALLISTA = 0x22,
+};
+
+enum {
+	SUSPEND_POINT_PLAYERIDLE = 0,
+	SUSPEND_POINT_DURINGACTION = 1,
+	SUSPEND_POINT_CPPHASE = 2,
+	SUSPEND_POINT_BSKPHASE = 3,
+	SUSPEND_POINT_DURINGARENA = 4,
+	SUSPEND_POINT_5 = 5,
+	SUSPEND_POINT_6 = 6,
+	SUSPEND_POINT_7 = 7,
+	SUSPEND_POINT_8 = 8,
+	SUSPEND_POINT_PHASECHANGE = 9
 };
 
 extern struct ActionData gActionData; //! FE8U = (0x0203A958)

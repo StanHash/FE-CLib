@@ -4,6 +4,7 @@
 // bmmenu.c?
 
 #include "proc.h"
+#include "text.h"
 
 typedef struct MenuGeometry MenuGeometry;
 
@@ -18,87 +19,90 @@ struct MenuGeometry {
 };
 
 struct MenuDefinition {
-	struct MenuGeometry geometry;
+	/* 00 */ struct MenuGeometry geometry;
 
-	u8 style;
+	/* 04 */ u8 style;
 
-	const struct MenuCommandDefinition* commandList;
+	/* 08 */ const struct MenuCommandDefinition* commandList;
 
-	void(*onInit)(MenuProc*); // 0C
-	void(*onEnd)(MenuProc*); // 10
-	void(*_u14)(MenuProc*); // 14
-	void(*onBPress)(MenuProc*, MenuCommandProc*); // 18
-	void(*onRPress)(MenuProc*); // 1C
-	void(*onHelpBox)(MenuProc*, MenuCommandProc*); // 20
+	/* 0C */ void(*onInit)(MenuProc*);
+	/* 10 */ void(*onEnd)(MenuProc*);
+	/* 14 */ void(*_u14)(MenuProc*);
+	/* 18 */ void(*onBPress)(MenuProc*, MenuCommandProc*);
+	/* 1C */ void(*onRPress)(MenuProc*);
+	/* 20 */ void(*onHelpBox)(MenuProc*, MenuCommandProc*);
 };
 
 struct MenuCommandDefinition {
-	const char* rawName;
+	/* 00 */ const char* rawName;
 
-	u16 nameId, helpId;
-	u8 colorId, _u09;
+	/* 04 */ u16 nameId, helpId;
+	/* 08 */ u8 colorId, _u09;
 
-	int(*isAvailable)(const MenuCommandDefinition*, int);
+	/* 0C */ int(*isAvailable)(const MenuCommandDefinition*, int);
 
-	void(*onDraw)(MenuProc*, MenuCommandProc*);
-	
-	int(*onEffect)(MenuProc*, MenuCommandProc*);
-	int(*onIdle)(MenuProc*, MenuCommandProc*);
+	/* 10 */ void(*onDraw)(MenuProc*, MenuCommandProc*);
 
-	void(*onSwitchIn)(MenuProc*, MenuCommandProc*);
-	void(*onSwitchOut)(MenuProc*, MenuCommandProc*);
+	/* 14 */ int(*onEffect)(MenuProc*, MenuCommandProc*);
+	/* 18 */ int(*onIdle)(MenuProc*, MenuCommandProc*);
+
+	/* 1C */ void(*onSwitchIn)(MenuProc*, MenuCommandProc*);
+	/* 20 */ void(*onSwitchOut)(MenuProc*, MenuCommandProc*);
 };
 
 struct MenuProc {
-	PROC_FIELDS
+	/* 00 */ PROC_HEADER;
 
-	struct MenuGeometry geometry;
-	const MenuDefinition* pDefinition;
+	/* 2C */ struct MenuGeometry geometry;
+	/* 30 */ const MenuDefinition* pDefinition;
 
-	struct MenuCommandProc* pCommandProc[11];
+	/* 34 */ struct MenuCommandProc* pCommandProc[11];
 
-	u8 commandCount;
-	u8 commandIndex;
-	u8 prevCommandIndex;
-	u8 stateBits;
+	/* 60 */ u8 commandCount;
+	/* 61 */ u8 commandIndex;
+	/* 62 */ u8 prevCommandIndex;
+	/* 63 */ u8 stateBits;
 
-	u8 backBgId : 3;
-	u8 frontBgId : 3;
+	/* 64 */ u8 backBgId : 3;
+	/* 64 */ u8 frontBgId : 3;
 
-	u16 tileBase;
-	u16 _u68;
+	/* 66 */ u16 tileBase;
+	/* 68 */ u16 _u68;
 };
 
 struct MenuCommandProc {
-	PROC_FIELDS
+	/* 00 */ PROC_HEADER;
 
-	u16 xDrawTile;
-	u16 yDrawTile;
+	/* 2A */ u16 xDrawTile;
+	/* 2C */ u16 yDrawTile;
 
-	const struct MenuCommandDefinition* pDefinition;
+	/* 30 */ const struct MenuCommandDefinition* pDefinition;
 
-	u32 _temp[2]; // TODO: TextHandle
+	/* 34 */ struct TextHandle text;
 
-	u8 commandDefinitionIndex;
-	u8 availability;
+	/* 3C */ u8 commandDefinitionIndex;
+	/* 3D */ u8 availability;
 };
 
-enum MenuCommandAvailability {
+enum {
+	// Menu command availability values
+
 	MCA_USABLE = 1,
 	MCA_GRAYED = 2,
-	MCA_NONUSABLE = 3
+	MCA_NONUSABLE = 3,
 };
 
 enum MenuEffect {
-	ME_NONE = 0x00,
+	//
+	ME_NONE = 0,
 
-	ME_DISABLE = 0x01,
-	ME_END = 0x02,
-	ME_PLAY_BEEP = 0x04,
-	ME_PLAY_BOOP = 0x08,
-	ME_CLEAR_GFX = 0x10,
-	ME_END_FACE0 = 0x20,
-	ME_END_AFTER = 0x80
+	ME_DISABLE = (1 << 0),
+	ME_END = (1 << 1),
+	ME_PLAY_BEEP = (1 << 2),
+	ME_PLAY_BOOP = (1 << 3),
+	ME_CLEAR_GFX = (1 << 4),
+	ME_END_FACE0 = (1 << 5),
+	ME_END_AFTER = (1 << 7),
 };
 
 // TODO: move to ui.h

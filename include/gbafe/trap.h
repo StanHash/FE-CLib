@@ -26,6 +26,49 @@ struct Trap {
 	/* 03 */ u8 data[5];
 };
 
+enum {
+	TRAP_NONE       = 0,
+	TRAP_BALLISTA   = 1,
+	TRAP_OBSTACLE   = 2, // walls & snags
+	TRAP_MAPCHANGE  = 3,
+	TRAP_FIRETILE   = 4,
+	TRAP_GAS        = 5,
+	TRAP_MAPCHANGE2 = 6, // TODO: figure out
+	TRAP_LIGHTARROW = 7,
+	TRAP_8          = 8,
+	TRAP_9          = 9,
+	TRAP_TORCHLIGHT = 10,
+	TRAP_MINE       = 11,
+	TRAP_GORGON_EGG = 12, // TODO: figure out
+	TRAP_LIGHT_RUNE = 13,
+};
+
+enum {
+	// Ballista extdata definitions
+	TRAP_EXTDATA_BLST_ITEMID   = 0, // ballista item id
+	TRAP_EXTDATA_BLST_RIDDEN   = 2, // "is ridden" boolean
+	TRAP_EXTDATA_BLST_ITEMUSES = 3, // ballista item uses
+
+	// Obstacle (Snags and Walls) extdata definitions
+	TRAP_EXTDATA_OBSTACLE_HP = 0, // hp left
+
+	// Map Change extdata definitions
+	TRAP_EXTDATA_MAPCHANGE_ID = 0, // map change id
+
+	// Trap (Fire/Gas/Arrow) extdata definitions
+	TRAP_EXTDATA_TRAP_TURNFIRST = 1, // start turn countdown
+	TRAP_EXTDATA_TRAP_TURNNEXT  = 2, // repeat turn countdown
+	TRAP_EXTDATA_TRAP_COUNTER   = 3, // turn counter
+	TRAP_EXTDATA_TRAP_DAMAGE    = 4, // trap damage (needs confirmation)
+
+	// Torchlight extdata definitions
+	TRAP_EXTDATA_LIGHT_TURNSLEFT = 0, // turns left before wearing out
+
+	// Light Rune extdata definitions
+	TRAP_EXTDATA_RUNE_REPLACINGTERRAIN = 0, // terrain id of the replaced tile
+	TRAP_EXTDATA_RUNE_TURNSLEFT        = 3, // turns left beofre wearing out
+};
+
 extern struct Trap gTrapArray[]; //! FE8U = (0x0203A614)
 
 struct Trap* GetTrapAt(int x, int y); //! FE8U = (0x0802E1F0+1)

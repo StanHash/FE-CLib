@@ -17,15 +17,12 @@ extern "C" {
 #include "gbafe/ap.h"
 #include "gbafe/hiobj.h"
 #include "gbafe/compress.h"
-#include "gbafe/class.h"
-#include "gbafe/character.h"
 #include "gbafe/game.h"
 #include "gbafe/item.h"
 #include "gbafe/unit.h"
 #include "gbafe/map.h"
 #include "gbafe/menu.h"
 #include "gbafe/targetselect.h"
-#include "gbafe/levelup.h"
 #include "gbafe/standunit.h"
 #include "gbafe/mu.h"
 #include "gbafe/trap.h"
@@ -41,6 +38,7 @@ extern "C" {
 #include "gbafe/sram.h"
 #include "gbafe/save.h"
 #include "gbafe/event.h"
+#include "gbafe/battle.h"
 
 #ifdef __cplusplus
 } // extern "C"

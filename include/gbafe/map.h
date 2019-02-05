@@ -20,6 +20,13 @@ extern MapData gMapMovement2; //! FE8U = (0x0202E4F0)
 
 extern u16** const gMapRawTiles; //! FE8U = (0x0859A9D4)
 
+enum {
+	// for use with gMapHidden
+
+	HIDDEN_BIT_UNIT = (1 << 0),
+	HIDDEN_BIT_TRAP = (1 << 1),
+};
+
 void InitChapterMap(u8 chapterIndex); //! FE8U = 0x80194BD
 void SetupMapRowPointers(void* pool, MapData* target, int width, int height); //! FE8U = 0x80197A5
 

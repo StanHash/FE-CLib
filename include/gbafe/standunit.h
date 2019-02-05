@@ -9,7 +9,7 @@ struct SMSHandle {
 
 	/* 08 */ u16 oam2Base;
 
-	/* 0A */ u8 _unk0A;
+	/* 0A */ u8 unk0A;
 	/* 0B */ s8 config;
 };
 

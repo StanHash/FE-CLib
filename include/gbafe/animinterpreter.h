@@ -24,15 +24,15 @@ struct AnimationInterpreter {
 
 	/* 20 */ const void* pCurrentFrame;
 	/* 24 */ const void* pStartFrame;
-	/* 28 */ const void* _unk28;
-	/* 2C */ const void* _unk2C;
+	/* 28 */ const void* pUnk28;
+	/* 2C */ const void* pUnk2C;
 	/* 30 */ const void* pStartObjData; // aka "OAM data"
 
 	/* 34 */ struct AnimationInterpreter* pPrev;
 	/* 38 */ struct AnimationInterpreter* pNext;
 
-	/* 40 */ const void* _unk40;
-	/* 44 */ const void* _unk44;
+	/* 40 */ const void* pUnk40;
+	/* 44 */ const void* pUnk44;
 };
 
 extern u8 gBattleCharacterIndices[2]; //! FE8U = 0x203E190
