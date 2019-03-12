@@ -30,96 +30,96 @@ typedef u32 bool32;
 
 struct DispCnt
 {
-    u16 mode:3;
-    u16 cgbMode:1;  // reserved, do not use
-    u16 bmpFrameNum:1;
-    u16 hblankIntervalFree:1;
-    u16 obj1dMap:1;
-    u16 forcedBlank:1;
-    u16 bg0_on:1;
-    u16 bg1_on:1;
-    u16 bg2_on:1;
-    u16 bg3_on:1;
-    u16 obj_on:1;
-    u16 win0_on:1;
-    u16 win1_on:1;
-    u16 objWin_on:1;
+    unsigned mode:3;
+    unsigned cgbMode:1;  // reserved, do not use
+    unsigned bmpFrameNum:1;
+    unsigned hblankIntervalFree:1;
+    unsigned obj1dMap:1;
+    unsigned forcedBlank:1;
+    unsigned bg0_on:1;
+    unsigned bg1_on:1;
+    unsigned bg2_on:1;
+    unsigned bg3_on:1;
+    unsigned obj_on:1;
+    unsigned win0_on:1;
+    unsigned win1_on:1;
+    unsigned objWin_on:1;
 };
 
 struct DispStat
 {
-    u16 vblankFlag:1;
-    u16 hblankFlag:1;
-    u16 vcountFlag:1;
-    u16 vblankIrqEnable:1;
-    u16 hblankIrqEnable:1;
-    u16 vcountIrqEnable:1;
-    u16 dummy:2;
-    u8 vcountCompare;
+    unsigned vblankFlag:1;
+    unsigned hblankFlag:1;
+    unsigned vcountFlag:1;
+    unsigned vblankIrqEnable:1;
+    unsigned hblankIrqEnable:1;
+    unsigned vcountIrqEnable:1;
+    unsigned dummy:2;
+    unsigned vcountCompare:8;
 };
 
 struct BgCnt
 {
-    u16 priority:2;
-    u16 charBaseBlock:2;
-    u16 dummy:2;
-    u16 mosaic:1;
-    u16 colorMode:1;
-    u16 screenBaseBlock:5;
-    u16 areaOverflowMode:1;
-    u16 screenSize:2;
+    unsigned priority:2;
+    unsigned charBaseBlock:2;
+    unsigned dummy:2;
+    unsigned mosaic:1;
+    unsigned colorMode:1;
+    unsigned screenBaseBlock:5;
+    unsigned areaOverflowMode:1;
+    unsigned screenSize:2;
 };
 
 struct WinCnt
 {
-    u8  win0_bg0_on:1;
-    u8  win0_bg1_on:1;
-    u8  win0_bg2_on:1;
-    u8  win0_bg3_on:1;
-    u8  win0_obj_on:1;
-    u8  win0_blend_on:1;
-    u8  dummy1:2;
+    unsigned  win0_bg0_on:1;
+    unsigned  win0_bg1_on:1;
+    unsigned  win0_bg2_on:1;
+    unsigned  win0_bg3_on:1;
+    unsigned  win0_obj_on:1;
+    unsigned  win0_blend_on:1;
+    unsigned  dummy1:2;
 
-    u8  win1_bg0_on:1;
-    u8  win1_bg1_on:1;
-    u8  win1_bg2_on:1;
-    u8  win1_bg3_on:1;
-    u8  win1_obj_on:1;
-    u8  win1_blend_on:1;
-    u8  dummy2:2;
+    unsigned  win1_bg0_on:1;
+    unsigned  win1_bg1_on:1;
+    unsigned  win1_bg2_on:1;
+    unsigned  win1_bg3_on:1;
+    unsigned  win1_obj_on:1;
+    unsigned  win1_blend_on:1;
+    unsigned  dummy2:2;
 
-    u8  wout_bg0_on:1;
-    u8  wout_bg1_on:1;
-    u8  wout_bg2_on:1;
-    u8  wout_bg3_on:1;
-    u8  wout_obj_on:1;
-    u8  wout_blend_on:1;
-    u8  dummy3:2;
+    unsigned  wout_bg0_on:1;
+    unsigned  wout_bg1_on:1;
+    unsigned  wout_bg2_on:1;
+    unsigned  wout_bg3_on:1;
+    unsigned  wout_obj_on:1;
+    unsigned  wout_blend_on:1;
+    unsigned  dummy3:2;
 
-    u8  objw_bg0_on:1;
-    u8  objw_bg1_on:1;
-    u8  objw_bg2_on:1;
-    u8  objw_bg3_on:1;
-    u8  objw_obj_on:1;
-    u8  objw_blend_on:1;
-    u8  dummy4:2;
+    unsigned  objw_bg0_on:1;
+    unsigned  objw_bg1_on:1;
+    unsigned  objw_bg2_on:1;
+    unsigned  objw_bg3_on:1;
+    unsigned  objw_obj_on:1;
+    unsigned  objw_blend_on:1;
+    unsigned  dummy4:2;
 };
 
 struct BlendCnt
 {
-    u16 target1_bg0_on:1;
-    u16 target1_bg1_on:1;
-    u16 target1_bg2_on:1;
-    u16 target1_bg3_on:1;
-    u16 target1_obj_on:1;
-    u16 target1_bd_on:1;
-    u16 effect:2;
-    u16 target2_bg0_on:1;
-    u16 target2_bg1_on:1;
-    u16 target2_bg2_on:1;
-    u16 target2_bg3_on:1;
-    u16 target2_obj_on:1;
-    u16 target2_bd_on:1;
+    unsigned target1_bg0_on:1;
+    unsigned target1_bg1_on:1;
+    unsigned target1_bg2_on:1;
+    unsigned target1_bg3_on:1;
+    unsigned target1_obj_on:1;
+    unsigned target1_bd_on:1;
+    unsigned effect:2;
+    unsigned target2_bg0_on:1;
+    unsigned target2_bg1_on:1;
+    unsigned target2_bg2_on:1;
+    unsigned target2_bg3_on:1;
+    unsigned target2_obj_on:1;
+    unsigned target2_bd_on:1;
 };
 
 struct PlttData

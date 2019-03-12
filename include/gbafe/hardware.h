@@ -10,45 +10,45 @@ typedef struct LCDIOBuffer LCDIOBuffer;
 typedef struct KeyStatusBuffer KeyStatusBuffer;
 
 struct LCDIOBuffer {
-	struct DispCnt dispControl;
-	struct DispStat dispStat;
+	/* 00 */ struct DispCnt dispControl;
+	/* 04 */ struct DispStat dispStat;
 
-	u32 _u08;
+	/* 08 */ u32 _u08;
 
-	struct BgCnt bgControl[4];
-	Vector2U bgOffset[4];
-	
-	u16 win0h;
-	u16 win1h;
-	u16 win0v;
-	u16 win1v;
+	/* 0C */ struct BgCnt bgControl[4];
+	/* 1C */ struct Vector2U bgOffset[4];
 
-	struct WinCnt winControl;
-	
-	u16 mosaic;
-	
-	struct BlendCnt blendControl;
-	
-	u32 _u40;
-	u8 blendCoeffA;
-	u8 blendCoeffB;
-	u8 blendY;
-	
-	u16 bg2pa;
-	u16 bg2pb;
-	u16 bg2pc;
-	u16 bg2pd;
-	u32 bg2x;
-	u32 bg2y;
+	/* 2C */ u16 win0h;
+	/* 2E */ u16 win1h;
+	/* 30 */ u16 win0v;
+	/* 32 */ u16 win1v;
 
-	u16 bg3pa;
-	u16 bg3pb;
-	u16 bg3pc;
-	u16 bg3pd;
-	u32 bg3x;
-	u32 bg3y;
+	/* 34 */ struct WinCnt winControl;
+	
+	/* 38 */ u16 mosaic;
+	
+	/* 3C */ struct BlendCnt blendControl;
+	
+	/* 40 */ u32 _u40;
+	/* 44 */ u8 blendCoeffA;
+	/* 45 */ u8 blendCoeffB;
+	/* 46 */ u8 blendY;
+	
+	/* 48 */ u16 bg2pa;
+	/* 4A */ u16 bg2pb;
+	/* 4C */ u16 bg2pc;
+	/* 4E */ u16 bg2pd;
+	/* 50 */ u32 bg2x;
+	/* 54 */ u32 bg2y;
 
-	s8 colorAddition;
+	/* 58 */ u16 bg3pa;
+	/* 5A */ u16 bg3pb;
+	/* 5C */ u16 bg3pc;
+	/* 5E */ u16 bg3pd;
+	/* 60 */ u32 bg3x;
+	/* 64 */ u32 bg3y;
+
+	/* 68 */ s8 colorAddition;
 };
 
 struct KeyStatusBuffer {
