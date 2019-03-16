@@ -152,11 +152,11 @@ enum {
 
 extern struct BattleStats gBattleStats;
 
-extern struct BattleUnit gActiveBattleUnit;
-extern struct BattleUnit gTargetBattleUnit;
+extern struct BattleUnit gBattleActor;
+extern struct BattleUnit gBattleTarget;
 
-extern struct BattleHit gRoundArray[BATTLE_HIT_MAX];
-extern struct BattleHit* gpCurrentRound;
+extern struct BattleHit gBattleHitArray[BATTLE_HIT_MAX];
+extern struct BattleHit* gBattleHitIterator;
 
 // Functions
 

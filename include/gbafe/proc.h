@@ -74,20 +74,20 @@ struct Proc {
 
 #define PROC_YIELD PROC_SLEEP(0)
 
-Proc* StartProc(const ProcInstruction*, Proc*); //! FE8U = (0x08002C7C+1)
-Proc* StartBlockingProc(const ProcInstruction*, Proc*); //! FE8U = (0x08002CE0+1)
+Proc* ProcStart(const ProcInstruction*, Proc*); //! FE8U = (0x08002C7C+1)
+Proc* ProcStartBlocking(const ProcInstruction*, Proc*); //! FE8U = (0x08002CE0+1)
 void EndProc(Proc*); //! FE8U = (0x08002D6C+1)
 void ExecProc(Proc*); //! FE8U = (0x08002E84+1)
 void BreakProcLoop(Proc*); //! FE8U = (0x08002E94+1)
-Proc* FindProc(const ProcInstruction*); //! FE8U = (0x08002E9C+1)
-void GotoProcLabel(Proc*, int); //! FE8U = (0x08002F24+1)
-void GotoProcInstruction(Proc*, const ProcInstruction*); //! FE8U = (0x08002F5C+1)
-void MarkProc(Proc*, int); //! FE8U = (0x08002F64+1)
-void SetProcEndHandler(Proc*, void(*)(Proc*)); //! FE8U = (0x08002F6C+1)
+Proc* ProcFind(const ProcInstruction*); //! FE8U = (0x08002E9C+1)
+void ProcGoto(Proc*, int); //! FE8U = (0x08002F24+1)
+void ProcGotoPtr(Proc*, const ProcInstruction*); //! FE8U = (0x08002F5C+1)
+void ProcMark(Proc*, int); //! FE8U = (0x08002F64+1)
+void ProcSetEndFunc(Proc*, void(*)(Proc*)); //! FE8U = (0x08002F6C+1)
 void ForEveryProc(void(*)(Proc*)); //! FE8U = (0x08002F70+1)
 void ForEachProc(const ProcInstruction*, void(*)(Proc*)); //! FE8U = (0x08002F98+1)
-void HaltEachProcMarked(int); //! FE8U = (0x08002FEC+1)
-void ResumeEachProcMarked(int); //! FE8U = (0x08003014+1)
+void ProcHaltEachMarked(int); //! FE8U = (0x08002FEC+1)
+void ProcResumeEachMarked(int); //! FE8U = (0x08003014+1)
 void EndEachProcMarked(int); //! FE8U = (0x08003040+1)
 void EndEachProc(const ProcInstruction*); //! FE8U = (0x08003078+1)
 void BreakEachProcLoop(const ProcInstruction*); //! FE8U = (0x08003094+1)
@@ -97,20 +97,20 @@ void SetProcCycleHandler(Proc*, void(*)(Proc*)); //! FE8U = (0x08003450+1)
 
 #define PROC_HEADER PROC_FIELDS
 
-#define Proc_Create StartProc
-#define Proc_CreateBlockingChild StartBlockingProc
+#define Proc_Create ProcStart
+#define Proc_CreateBlockingChild ProcStartBlocking
 #define Proc_Delete EndProc
 #define Proc_Run ExecProc
 #define Proc_ClearNativeCallback BreakProcLoop
-#define Proc_Find FindProc
-#define Proc_GotoLabel GotoProcLabel
-#define Proc_JumpToPointer GotoProcInstruction
-#define Proc_SetMark MarkProc
-#define Proc_SetDestructor SetProcEndHandler
+#define Proc_Find ProcFind
+#define Proc_GotoLabel ProcGoto
+#define Proc_JumpToPointer ProcGotoPtr
+#define Proc_SetMark ProcMark
+#define Proc_SetDestructor ProcSetEndFunc
 #define Proc_ForEach ForEveryProc
 #define Proc_ForEachWithScript ForEachProc
-#define Proc_BlockEachWithMark HaltEachProcMarked
-#define Proc_UnblockEachWithMark ResumeEachProcMarked
+#define Proc_BlockEachWithMark ProcHaltEachMarked
+#define Proc_UnblockEachWithMark ProcResumeEachMarked
 
 // void Proc_Initialize(void);
 // ??? Proc_Create(???);

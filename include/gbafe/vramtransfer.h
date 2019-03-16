@@ -11,10 +11,10 @@ struct ObjData {
 };
 
 // "Standard" single-object datas
-extern const struct ObjData gOAM_8x8Obj;
-extern const struct ObjData gOAM_16x16Obj;
-extern const struct ObjData gOAM_32x32Obj;
-extern const struct ObjData gOAM_16x32Obj;
+extern const struct ObjData gObj_8x8;
+extern const struct ObjData gObj_16x16;
+extern const struct ObjData gObj_32x32;
+extern const struct ObjData gObj_16x32;
 
 void ClearTileRegistry(void); //! FE8U = 0x8001FE1
 void RegisterTileGraphics(const void* source, void* target, unsigned size); //! FE8U = 0x8002015

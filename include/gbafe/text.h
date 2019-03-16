@@ -59,11 +59,11 @@ enum FontGlyphType {
 extern struct FontData gDefaultFontData;
 extern struct FontData* gpCurrentFont;
 
-void Font_InitDefault(void); //! FE8U = 0x8003C95
-void Font_InitForUI(struct FontData* pData, void* pVRAMTileRoot, u16 tileBase, int palIndex); //! FE8U = 0x8003CB9
-void Font_SetGlyphSet(int typeId); //! FE8U = 0x8003CF5
-void Font_ResetAllocation(void); //! FE8U = 0x8003D21
-void SetFont(struct FontData*); //! FE8U = 0x8003D39
+void Text_InitFont(void); //! FE8U = 0x8003C95
+void Text_InitFontExt(struct FontData* pData, void* pVRAMTileRoot, u16 tileBase, int palIndex); //! FE8U = 0x8003CB9
+void Text_SetFontStandardGlyphSet(int typeId); //! FE8U = 0x8003CF5
+void Text_ResetTileAllocation(void); //! FE8U = 0x8003D21
+void Text_SetFont(struct FontData*); //! FE8U = 0x8003D39
 
 void Text_InitClear(struct TextHandle*, unsigned tileWidth); //! FE8U = 0x8003D5D
 void Text_InitDB(struct TextHandle*, unsigned tileWidth); //! FE8U = 0x8003D85
@@ -80,24 +80,24 @@ int Text_GetColorId(struct TextHandle*); //! FE8U = 0x8003E65
 
 struct TextHandle* Text_SetParameters(struct TextHandle*, int cursor, int color); //! FE8U = 0x8003E69
 
-void Text_Draw(struct TextHandle*, u16* bgMap); //! FE8U = 0x8003E71
-void Text_DrawBlank(struct TextHandle*, u16* bgMap); //! FE8U = 0x8003EBD
+void Text_Display(struct TextHandle*, u16* bgMap); //! FE8U = 0x8003E71
+void Text_DisplayBlank(struct TextHandle*, u16* bgMap); //! FE8U = 0x8003EBD
 
-unsigned GetStringTextWidth(const char*); //! FE8U = 0x8003EDD
+unsigned Text_GetStringTextWidth(const char*); //! FE8U = 0x8003EDD
 const char* GetCharTextWidth(const char* in, unsigned* out); //! FE8U = 0x8003F3D
-unsigned GetStringTextCenteredPos(unsigned fullLen, const char* cstring); //! FE8U = 0x8003F91
+unsigned Text_GetStringTextCenteredPos(unsigned fullLen, const char* cstring); //! FE8U = 0x8003F91
 
-const char* String_GetNextLine(const char*); //! FE8U = 0x8003FF5
+const char* Text_GetStringNextLine(const char*); //! FE8U = 0x8003FF5
 
-void Text_AppendString(struct TextHandle*, const char*); //! FE8U = 0x8004005
-void Text_AppendDecNumber(struct TextHandle*, int); //! FE8U = 0x8004075
-void Text_AppendNumberOr2Dashes(struct TextHandle*, u8); //! FE8U = 0x8004145
-void Text_AppendChar(struct TextHandle*, char); //! FE8U = 0x8004181
+void Text_DrawString(struct TextHandle*, const char*); //! FE8U = 0x8004005
+void Text_DrawNumber(struct TextHandle*, int); //! FE8U = 0x8004075
+void Text_DrawNumberOr2Dashes(struct TextHandle*, u8); //! FE8U = 0x8004145
+void Text_DrawChar(struct TextHandle*, char); //! FE8U = 0x8004181
 
 // TODO: figure more out
 // (I only have vague knowledge on what most things past here does)
 
-void* Text_Get1DVRAMTarget(struct TextHandle*); //! FE8U = 0x80041E9
+void* Text_GetDst1dText(struct TextHandle*); //! FE8U = 0x80041E9
 const u16* Get2bppTo4bppLookup(int); //! FE8U = 0x8004209
 void DrawGlyph1DTile(struct TextHandle*, const struct FontGlyphData*); //! FE8U = 0x8004219
 void DrawGlyph1DTileNoClear(struct TextHandle*, const struct FontGlyphData*); //! FE8U = 0x8004269

@@ -79,7 +79,7 @@ void AiDecisionMaker_AiScript2(void);
 void AiDecisionMaker_SpecialItems(void);
 
 void AiFillMovementMapForUnit(struct Unit*);
-int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vector2* out);
+int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vec2* out);
 void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
 
 #endif // GBAFE_AI_H

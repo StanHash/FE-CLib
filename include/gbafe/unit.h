@@ -372,89 +372,89 @@ enum {
 extern const struct CharacterData gCharacterData[];
 extern const struct ClassData gClassData[];
 
-extern struct Unit gUnitArray[]; //! FE8U = 0x202BE4C
+extern struct Unit gUnitArrayBlue[]; //! FE8U = 0x202BE4C
 extern struct Unit* gActiveUnit; //! FE8U = 0x3004E50
 extern struct Unit* const gUnitLookup[]; //! FE8U = 0x859A5D0
 
 extern u8 gActiveUnitId; //! FE8U = 0x202BE44
-extern struct Vector2 gActiveUnitPosition; //! FE8U = 0x202BE48
+extern struct Vec2 gActiveUnitMoveOrigin; //! FE8U = 0x202BE48
 
 void ClearUnits(void); //! FE8U = 0x80177C5
 void ClearUnit(struct Unit*); //! FE8U = 0x80177F5
 void CopyUnit(const struct Unit*, struct Unit*); //! FE8U = 0x801781D
-struct Unit* GetNextFreeUnit(int faction); //! FE8U = 0x8017839
-struct Unit* GetNextFreePlayerUnit(); //! FE8U = 0x8017871
+struct Unit* GetFreeUnit(int faction); //! FE8U = 0x8017839
+struct Unit* GetFreeBlueUnit(); //! FE8U = 0x8017871
 
 int GetUnitFogViewRange(const struct Unit*); //! FE8U = 0x80178A9
 
-void SetUnitNewStatus(struct Unit*, int status); //! FE8U = 0x80178D9
-void SetUnitStatus(struct Unit*, int status, int duration); //! FE8U = 0x80178F5
+void SetUnitStatus(struct Unit*, int status); //! FE8U = 0x80178D9
+void SetUnitStatusExt(struct Unit*, int status, int duration); //! FE8U = 0x80178F5
 
-int GetUnitSMSIndex(const struct Unit*); //! FE8U = 0x8017905
+int GetUnitSMSId(const struct Unit*); //! FE8U = 0x8017905
 
 int UnitAddItem(struct Unit*, u16); //! FE8U = 0x8017949
 void ClearUnitInventory(struct Unit*); //! FE8U = 0x801796D
-void RemoveUnitBlankItems(struct Unit*); //! FE8U = 0x8017985
+void UnitRemoveInvalidItems(struct Unit*); //! FE8U = 0x8017985
 int GetUnitItemCount(const struct Unit*); //! FE8U = 0x80179D9
 int UnitHasItem(const struct Unit*, u16); //! FE8U = 0x80179F9
 
 int LoadUnits(const struct UnitDefinition[]); //! FE8U = 0x8017A35
-int HasClassWRank(u8); //! FE8U = 0x8017A8D
+int CanClassWieldWeaponType(u8); //! FE8U = 0x8017A8D
 struct Unit* LoadUnit(const struct UnitDefinition*); //! FE8U = 0x8017AC5
-void PopulateUnitFromDefinition(struct Unit*, const struct UnitDefinition*); //! FE8U = 0x8017D3D
-void CharFillInventoryFromCode(struct Unit*, const struct UnitDefinition*); //! FE8U = 0x8017DF9
-void LoadUnitStats(struct Unit*, const struct CharacterData*); //! FE8U = 0x8017E35
+void UnitInitFromDefinition(struct Unit*, const struct UnitDefinition*); //! FE8U = 0x8017D3D
+void UnitLoadItemsFromDefinition(struct Unit*, const struct UnitDefinition*); //! FE8U = 0x8017DF9
+void UnitLoadStatsFromChracter(struct Unit*, const struct CharacterData*); //! FE8U = 0x8017E35
 void FixROMUnitStructPtr(struct Unit*); //! FE8U = 0x8017EBD
-void InitUnitSupports(struct Unit*); //! FE8U = 0x8017EF5
-void AutolevelUnitWeaponRanks(struct Unit*); //! FE8U = 0x8017F21
-void IncreaseUnitStatsByLevelCount(struct Unit*, int, int); //! FE8U = 0x8017FC5
-void RecomputeUnitStatsForLevelPenalty(struct Unit*, int, int); //! FE8U = 0x8018065
-void ApplyBonusLevels(struct Unit*, int); //! FE8U = 0x80180CD
-void AutolevelUnit(struct Unit*); //! FE8U = 0x8018121
-void AutolevelRealistic(struct Unit*); //! FE8U = 0x8018161
-void EnsureNoUnitStatCapOverflow(struct Unit*); //! FE8U = 0x80181C9
+void UnitLoadSupports(struct Unit*); //! FE8U = 0x8017EF5
+void UnitAutolevelWExp(struct Unit*); //! FE8U = 0x8017F21
+void UnitAutolevelCore(struct Unit*, int, int); //! FE8U = 0x8017FC5
+void UnitAutolevelPenalty(struct Unit*, int, int); //! FE8U = 0x8018065
+void UnitApplyBonusLevels(struct Unit*, int); //! FE8U = 0x80180CD
+void UnitAutolevel(struct Unit*); //! FE8U = 0x8018121
+void UnitAutolevelRealistic(struct Unit*); //! FE8U = 0x8018161
+void UnitCheckStatCaps(struct Unit*); //! FE8U = 0x80181C9
 
 struct Unit* GetUnitByCharId(u8 charId); //! FE8U = 0x801829D
-struct Unit* GetUnitByCharIdAndAllegiance(u8 charId, int faction); //! FE8U = 0x80182D9
+struct Unit* GetUnitFromCharIdAndFaction(u8 charId, int faction); //! FE8U = 0x80182D9
 
 int CanUnitRescue(const struct Unit*, const struct Unit*); //! FE8U = 0x801831D
 void UnitRescue(struct Unit*, struct Unit*); //! FE8U = 0x801834D
 void UnitDrop(struct Unit*, int x, int y); //! FE8U = 0x8018371
 void UnitGive(struct Unit*, struct Unit*); //! FE8U = 0x80183C9
-void ChangeUnitAllegiance(struct Unit* unit, int faction); //! FE8U = 0x8018431
-void ApplyUnitMovement(struct Unit*); //! FE8U = 0x801849D
+void UnitChangeFaction(struct Unit* unit, int faction); //! FE8U = 0x8018431
+void UnitFinalizeMovement(struct Unit*); //! FE8U = 0x801849D
 
-void SetupActiveUnit(struct Unit*); //! FE8U = 0x801865D
-void SetActiveUnit(struct Unit*); //! FE8U = 0x80186D5
+void UnitBeginAction(struct Unit*); //! FE8U = 0x801865D
+void UnitBeginCantoAction(struct Unit*); //! FE8U = 0x80186D5
 void MoveActiveUnit(int x, int y); //! FE8U = 0x8018741
 
 void SetAllUnitNotBackSprite(void); //! FE8U = 0x801895D
 
-void UnitDecreaseItemUse(struct Unit*, int slot); //! FE8U = 0x8018995
+void UnitUpdateUsedItem(struct Unit*, int slot); //! FE8U = 0x8018995
 
 int GetUnitAid(const struct Unit*); //! FE8U = 0x80189B9
 int GetUnitMagBy2Range(const struct Unit*); //! FE8U = 0x8018A1D
 int UnitHasMagicRank(const struct Unit*); //! FE8U = 0x8018A59
-int GetUnitUseFlags(const struct Unit*); //! FE8U = 0x8018B29
+int GetUnitWeaponUsabilityBits(const struct Unit*); //! FE8U = 0x8018B29
 
-int CanActiveUnitMove(void); //! FE8U = 0x8018BD9
+int CanUnitMove(void); //! FE8U = 0x8018BD9
 
 int IsPositionMagicSealed(int x, int y); //! FE8U = 0x8018C99
-int CanUnitNotUseMagic(const struct Unit*); //! FE8U = 0x8018D09
+int IsUnitMagicSealed(const struct Unit*); //! FE8U = 0x8018D09
 
 u16 GetUnitLastItem(const struct Unit*); //! FE8U = 0x8018D35
 
-const u8* GetUnitMovCostTable(const struct Unit*); //! FE8U = 0x8018D4D
+const u8* GetUnitMovementCost(const struct Unit*); //! FE8U = 0x8018D4D
 
-u8 GetClassStandingMapSpriteId(u8); //! FE8U = 0x8018D91
+u8 GetClassSMSId(u8); //! FE8U = 0x8018D91
 
-void MapMain_UpdatePrevDeployStates(void); //! FE8U = 0x8018DB1
+void UpdatePrevDeployStates(void); //! FE8U = 0x8018DB1
 void LoadUnitPrepScreenPositions(void); //! FE8U = 0x8018E31
 int IsUnitSlotAvailable(int faction); //! FE8U = 0x8018F49
 void ClearCutsceneUnits(void); //! FE8U = 0x80190B5
 
-int GetUnitCurrentHP(const struct Unit*); //! FE8U = 0x8019151
-int GetUnitMaxHP(const struct Unit*); //! FE8U = 0x8019191
+int GetUnitCurrentHp(const struct Unit*); //! FE8U = 0x8019151
+int GetUnitMaxHp(const struct Unit*); //! FE8U = 0x8019191
 int GetUnitPower(const struct Unit*); //! FE8U = 0x80191B1
 int GetUnitSkill(const struct Unit*); //! FE8U = 0x80191D1
 int GetUnitSpeed(const struct Unit*); //! FE8U = 0x8019211
@@ -463,20 +463,20 @@ int GetUnitResistance(const struct Unit*); //! FE8U = 0x8019271
 int GetUnitLuck(const struct Unit*); //! FE8U = 0x8019299
 int GetUnitPortraitId(const struct Unit*); //! FE8U = 0x80192B9
 int GetUnitMiniPortraitId(const struct Unit*); //! FE8U = 0x80192F5
-u8 GetUnitLeader(const struct Unit*); //! FE8U = 0x8019341
+u8 GetUnitLeaderCharId(const struct Unit*); //! FE8U = 0x8019341
 
-void SetUnitHP(struct Unit*, int); //! FE8U = 0x8019369
-void UnitTryHeal(struct Unit*, int); //! FE8U = 0x80193A5
+void SetUnitHp(struct Unit*, int); //! FE8U = 0x8019369
+void AddUnitHp(struct Unit*, int); //! FE8U = 0x80193A5
 
-char* GetUnitRescuingNameString(const struct Unit*); //! FE8U = 0x80193E9
-char* GetUnitStatusString(const struct Unit*); //! FE8U = 0x8019415
+char* GetUnitRescueName(const struct Unit*); //! FE8U = 0x80193E9
+char* GetUnitStatusName(const struct Unit*); //! FE8U = 0x8019415
 
 struct Unit* GetUnit(u8 index); //! FE8U = 0x8019431
 
 const struct ClassData* GetClassData(u8); //! FE8U = 0x8019445
 const struct CharacterData* GetCharacterData(u8); //! FE8U = 0x8019465
 
-void RemoveUnitItem(struct Unit*, int slot); //! FE8U = 0x8019485
+void UnitRemoveItem(struct Unit*, int slot); //! FE8U = 0x8019485
 
 int CanUnitCrossTerrain(const struct Unit*, u8 terrain); //! FE8U = 0x801949D
 

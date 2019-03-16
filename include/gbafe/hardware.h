@@ -10,24 +10,24 @@ typedef struct LCDIOBuffer LCDIOBuffer;
 typedef struct KeyStatusBuffer KeyStatusBuffer;
 
 struct LCDIOBuffer {
-	/* 00 */ struct DispCnt dispControl;
+	/* 00 */ struct DispControl dispControl;
 	/* 04 */ struct DispStat dispStat;
 
 	/* 08 */ u32 _u08;
 
-	/* 0C */ struct BgCnt bgControl[4];
-	/* 1C */ struct Vector2U bgOffset[4];
+	/* 0C */ struct BgControl bgControl[4];
+	/* 1C */ struct Vec2u bgOffset[4];
 
 	/* 2C */ u16 win0h;
 	/* 2E */ u16 win1h;
 	/* 30 */ u16 win0v;
 	/* 32 */ u16 win1v;
 
-	/* 34 */ struct WinCnt winControl;
+	/* 34 */ struct WinControl winControl;
 	
 	/* 38 */ u16 mosaic;
 	
-	/* 3C */ struct BlendCnt blendControl;
+	/* 3C */ struct BlendControl blendControl;
 	
 	/* 40 */ u32 _u40;
 	/* 44 */ u8 blendCoeffA;
@@ -76,7 +76,7 @@ extern u16 gBg3MapBuffer[0x400]; //! FE8U = 0x20244A8
 
 extern u16* gBgMapTarget[4]; //! FE8U = 0x2024CA8
 
-extern struct KeyStatusBuffer gKeyStatus; //! FE8U = 0x2024CC0
+extern struct KeyStatusBuffer gKeyState; //! FE8U = 0x2024CC0
 
 #define BG_LOCATED_TILE(apBg, aXTile, aYTile) (&(apBg)[(aXTile) + (aYTile) * 0x20])
 
@@ -94,7 +94,7 @@ void SetBgScreenSize(int); //! FE8U = 0x800104D
 void SyncPalettes_AdditiveFilter(int); //! FE8U = 0x8001095
 void SyncPalettes_SubstractiveFilter(int); //! FE8U = 0x80010F1
 
-void SyncBgs(void); //! FE8U = 0x800114D
+void SyncBgAndPals(void); //! FE8U = 0x800114D
 void FillBgMap(u16 map[], u16); //! FE8U = 0x8001221
 
 void RegisterBlankTile(int index); //! FE8U = 0x8001241
@@ -106,9 +106,9 @@ void SetLCDVCountSetting(int); //! FE8U = 0x800131D
 void SetMainCallback(void(*)(void)); //! FE8U = 0x8001329
 void ExecMainCycle(void); //! FE8U = 0x8001335
 
-void UpdateKeyStatus_Private(KeyStatusBuffer*, u16); //! FE8U = 0x800134D
-void UpdateKeyStatus(KeyStatusBuffer*); //! FE8U = 0x80013E1
-void ResetKeyStatus(void); //! FE8U = 0x8001421
+void KeyStateUpdatePrivate(KeyStatusBuffer*, u16); //! FE8U = 0x800134D
+void KeyStateUpdate(KeyStatusBuffer*); //! FE8U = 0x80013E1
+void KeyStateInit(void); //! FE8U = 0x8001421
 void SetKeyStatusIgnore(u16); //! FE8U = 0x8001441
 u16 GetKeyStatusIgnore(); //! FE8U = 0x800144D
 void KeyStatusSetterProc_Set(Proc*); //! FE8U = 0x8001459

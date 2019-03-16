@@ -54,7 +54,7 @@ enum _TargetSelectionEffect {
 	TSE_END_FACE0 = 0x20
 };
 
-extern Vector2U gTargetPosition; //! FE8U = 0x0203DDE8
+extern struct Vec2u gTargetPosition; //! FE8U = 0x0203DDE8
 extern TargetEntry gTargetArray[]; //! FE8U = 0x0203DDEC
 extern unsigned int gTargetArraySize; //! FE8U = 0x0203E0EC
 

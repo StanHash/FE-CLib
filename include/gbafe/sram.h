@@ -1,9 +1,9 @@
 #ifndef GBAFE_SRAM_H
 #define GBAFE_SRAM_H
 
-void SetSramFastFunc(void);
+void SramFastFuncInit(void);
 void WriteSramFast(const void* src, void* dest, unsigned size);
-extern void (*gpReadSramFast)(const void* src, void* dest, unsigned size);
+extern void (*ReadSramFast)(const void* src, void* dest, unsigned size);
 extern unsigned (*gpVerifySramFast)(const void* src, void* dest, unsigned size);
 unsigned WriteAndVerifySramFast(const void* src, void* dest, unsigned size);
 

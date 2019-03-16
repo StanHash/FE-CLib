@@ -8,7 +8,7 @@
 
 typedef u8** MapData;
 
-extern struct { short width, height; } gMapSize; //! FE8U = (0x0202E4D4)
+extern struct Vec2u gMapSize; //! FE8U = (0x0202E4D4)
 
 extern MapData gMapUnit; //! FE8U = (0x0202E4D8)
 extern MapData gMapTerrain; //! FE8U = (0x0202E4DC)
@@ -28,33 +28,33 @@ enum {
 };
 
 void InitChapterMap(u8 chapterIndex); //! FE8U = 0x80194BD
-void SetupMapRowPointers(void* pool, MapData* target, int width, int height); //! FE8U = 0x80197A5
+void BmMapInit(void* pool, MapData* target, int width, int height); //! FE8U = 0x80197A5
 
-void ClearMapWith(MapData, u8 value); //! FE8U = 0x80197E5
+void BmMapFill(MapData, u8 value); //! FE8U = 0x80197E5
 
-void LoadChapterMap(void* buffer, u8 chapterIndex); //! FE8U = 0x80198AD
-void LoadChapterMapGfx(u8 chapterIndex); //! FE8U = 0x801990D
-void SyncTilesFromMapBuffer(void); //! FE8U = 0x80199A5
+void UnpackChapterMap(void* buffer, u8 chapterIndex); //! FE8U = 0x80198AD
+void UnpackChapterMapGraphics(u8 chapterIndex); //! FE8U = 0x801990D
+void InitBaseTilesBmMap(void); //! FE8U = 0x80199A5
 
-void RefreshTerrainMap(void); //! FE8U = 0x8019A65
+void RefreshTerrainBmMap(void); //! FE8U = 0x8019A65
 
-u8 GetSomeTerrainToChangeAtSomePosition(int x, int y); //! FE8U = 0x8019AF5
+u8 GetTrueTerrainAt(int x, int y); //! FE8U = 0x8019AF5
 
-void UpdateGameTileGfx(u16* bg, int x, int y, int xTile, int yTile); //! FE8U = 0x8019B19
-void DrawTileGraphics(void); //! FE8U = 0x8019C3D
+void DisplayBmTile(u16* bg, int x, int y, int xTile, int yTile); //! FE8U = 0x8019B19
+void RenderBmMap(void); //! FE8U = 0x8019C3D
 
-void InitMapChangeGraphics(void); //! FE8U = 0x8019CBD
+void RenderBmMapOnBg2(void); //! FE8U = 0x8019CBD
 
-void RefreshUnitMapAndVision(void); //! FE8U = 0x8019FA1
-void RefreshTrapFogVision(void); //! FE8U = 0x801A175
-void RefreshTrapHiddenStates(void); //! FE8U = 0x801A1A1
-void RefreshEntityMaps(void); //! FE8U = 0x801A1F4
+void RefreshUnitsOnBmMap(void); //! FE8U = 0x8019FA1
+void RefreshTorchlightsOnBmMap(void); //! FE8U = 0x801A175
+void RefreshMinesOnBmMap(void); //! FE8U = 0x801A1A1
+void RefreshEntityBmMaps(void); //! FE8U = 0x801A1F4
 
-char* GetTerrainNameString(u8); //! FE8U = 0x801A241
+char* GetTerrainName(u8); //! FE8U = 0x801A241
 int GetTerrainHealAmount(u8); //! FE8U = 0x801A259
-int GetTerrainSomething(u8); //! FE8U = 0x801A269
+int GetTerrainUnk(u8); //! FE8U = 0x801A269
 
-void RevertMapChangesById(int id); //! FE8U = 0x801A2ED
+void RevertMapChange(int id); //! FE8U = 0x801A2ED
 
 void FillMovementMapForUnit(const struct Unit*); //! FE8U = 0x801A38D
 void FillMovementMapForUnitAndMovement(const struct Unit*, int movement); //! FE8U = 0x801A3CD

@@ -1,7 +1,6 @@
 #ifndef GUARD_GBA_MACRO_H
 #define GUARD_GBA_MACRO_H
 
-#include "types.h"
 #include "syscall.h"
 
 #define CPU_FILL(value, dest, size, bit)                                          \

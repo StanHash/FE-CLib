@@ -153,83 +153,83 @@ enum {
 
 extern const ItemData gItemData[];
 
-char* GetItemStringWithArticle(Item, int capitalized); //! FE8U = (0x0801618C+1)
+char* GetItemNameWithArticle(int item, int capitalized); //! FE8U = (0x0801618C+1)
 
-int GetItemHealthBonus(Item); //! FE8U = (0x080163F0+1)
-int GetItemPowerBonus(Item); //! FE8U = (0x08016420+1)
-int GetItemSkillBonus(Item); //! FE8U = (0x08016450+1)
-int GetItemSpeedBonus(Item); //! FE8U = (0x08016480+1)
-int GetItemDefenseBonus(Item); //! FE8U = (0x080164B0+1)
-int GetItemResistanceBonus(Item); //! FE8U = (0x080164E0+1)
-int GetItemLuckBonus(Item); //! FE8U = (0x08016510+1)
+int GetItemHpBonus(int item); //! FE8U = (0x080163F0+1)
+int GetItemPowBonus(int item); //! FE8U = (0x08016420+1)
+int GetItemSklBonus(int item); //! FE8U = (0x08016450+1)
+int GetItemSpdBonus(int item); //! FE8U = (0x08016480+1)
+int GetItemDefBonus(int item); //! FE8U = (0x080164B0+1)
+int GetItemResBonus(int item); //! FE8U = (0x080164E0+1)
+int GetItemLckBonus(int item); //! FE8U = (0x08016510+1)
 
-Item MakeItem(u8 id); //! FE8U = (0x08016540+1)
+int MakeNewItem(u8 id); //! FE8U = (0x08016540+1)
 
-int CanUnitWieldWeapon(const struct Unit*, Item); //! FE8U = (0x08016574+1)
-int CanUnitUseWeapon(const struct Unit*, Item); //! FE8U = (0x08016750+1)
+int CanUnitUseWeapon(const struct Unit*, int item); //! FE8U = (0x08016574+1)
+int CanUnitUseWeaponNow(const struct Unit*, int item); //! FE8U = (0x08016750+1)
 
-int CanUnitWieldStaff(const struct Unit*, Item); //! FE8U = (0x080167A4+1)
-int CanUnitUseStaff(const struct Unit*, Item); //! FE8U = (0x08016800+1)
+int CanUnitUseStaff(const struct Unit*, int item); //! FE8U = (0x080167A4+1)
+int CanUnitUseStaffNow(const struct Unit*, int item); //! FE8U = (0x08016800+1)
 
-Item GetItemAfterUse(Item); //! FE8U = (0x08016AEC+1)
+int GetItemAfterUse(int item); //! FE8U = (0x08016AEC+1)
 
-Item GetUnitEquippedItem(const struct Unit*); //! FE8U = (0x08016B28+1)
-int GetUnitEquippedItemSlot(const struct Unit*); //! FE8U = (0x08016B58+1)
+int GetUnitEquippedWeapon(const struct Unit*); //! FE8U = (0x08016B28+1)
+int GetUnitEquippedWeaponSlot(const struct Unit*); //! FE8U = (0x08016B58+1)
 
-int IsItemCoveringRange(Item, int range); //! FE8U = (0x08016B8C+1)
+int IsItemCoveringRange(int item, int range); //! FE8U = (0x08016B8C+1)
 
 void EquipUnitItemSlot(struct Unit*, int slot); //! FE8U = (0x08016BC0+1)
 
-int IsWeaponEffectiveAgainst(Item, const struct Unit*); //! FE8U = (0x08016BEC+1)
+int IsItemEffectiveAgainst(int item, const struct Unit*); //! FE8U = (0x08016BEC+1)
 
-char* GetItemRangeString(Item); //! FE8U = (0x08016CC0+1)
-int GetWRankLevel(int rank); //! FE8U = (0x08016D5C+1)
-char* GetItemWRankLevelString(Item); //! FE8U = (0x08016D94+1)
+char* GetItemDisplayRangeString(int item); //! FE8U = (0x08016CC0+1)
+int GetWeaponLevelFromExp(int rank); //! FE8U = (0x08016D5C+1)
+char* GetItemDisplayRankString(int item); //! FE8U = (0x08016D94+1)
 
-char* GetWTypeString(int wtype); //! FE8U = (0x08016E20+1)
+char* GetWeaponTypeDisplayString(int wtype); //! FE8U = (0x08016E20+1)
 
-void GetWRankBarData(int wrank, int* valOut, int* maxOut); //! FE8U = (0x08016E50+1)
+void GetWeaponExpProgressState(int wrank, int* valOut, int* maxOut); //! FE8U = (0x08016E50+1)
 
-int IsItemDanceRing(Item); //! FE8U = (0x08016EC8+1)
-int IsItemUsable(const struct Unit*, Item); //! FE8U = 0x8016EE5
-int CanUnitUse(const struct Unit*, Item); //! FE8U = 0x8016F7D
-int GetItemHealAmount(const struct Unit*, Item); //! FE8U = 0x8016FB9
-int GetUnitItemSlot(const struct Unit*, Item); //! FE8U = 0x801702D
+int IsItemDanceRing(int item); //! FE8U = (0x08016EC8+1)
+int IsItemDisplayUsable(const struct Unit*, int item); //! FE8U = 0x8016EE5
+int CanUnitUse_unused(const struct Unit*, int item); //! FE8U = 0x8016F7D
+int GetUnitItemHealAmount(const struct Unit*, int item); //! FE8U = 0x8016FB9
+int GetUnitItemSlot(const struct Unit*, int item); //! FE8U = 0x801702D
 
-int IsItemStealable(Item); //! FE8U = 0x8017055
-int IsItemHammernable(Item); //! FE8U = 0x8017081
+int IsItemStealable(int item); //! FE8U = 0x8017055
+int IsItemHammernable(int item); //! FE8U = 0x8017081
 
-u32 GetWeaponRangeMask(Item); //! FE8U = 0x80170D5
-u32 GetUnitRangeMask(const struct Unit*, int slot); //! FE8U = 0x80171E9
-u32 GetUnitStaffRangeMask(const struct Unit*); //! FE8U = 0x80172F9
+u32 GetItemReachBits(int item); //! FE8U = 0x80170D5
+u32 GetUnitWeaponReachBits(const struct Unit*, int slot); //! FE8U = 0x80171E9
+u32 GetUnitStaffReachBits(const struct Unit*); //! FE8U = 0x80172F9
 
-int GetConvoyTotalGoldValue(); //! FE8U = 0x801737D
+int GetConvoyItemCostSum(void); //! FE8U = 0x801737D
 
-u8 GetItemIndex(Item); //! FE8U = 0x80174ED
-char* GetItemNameString(Item); //! FE8U = 0x80174F5
-int GetItemDescStringIndex(Item); //! FE8U = 0x8017519
-int GetItemUseDescTextIndex(Item); //! FE8U = 0x8017531
-int GetItemWType(Item); //! FE8U = 0x8017549
-u32 GetItemAttributes(Item); //! FE8U = 0x801756D
-int GetItemUses(Item); //! FE8U = 0x8017585
-int GetItemMaxUses(Item); //! FE8U = 0x80175B1
-int GetItemMight(Item); //! FE8U = 0x80175DD
-int GetItemHit(Item); //! FE8U = 0x80175F5
-int GetItemWeight(Item); //! FE8U = 0x801760D
-int GetItemCrit(Item); //! FE8U = 0x8017625
-int GetItemCost(Item); //! FE8U = 0x801763D
-int GetItemMinRange(Item); //! FE8U = 0x801766D
-int GetItemMaxRange(Item); //! FE8U = 0x8017685
-int GetItemRange(Item); //! FE8U = 0x80176A1
-int GetItemWRank(Item); //! FE8U = 0x80176B9
-u8* GetItemEffectivenessPtr(Item); //! FE8U = 0x80176D1
-u8* GetItemStatBonuses(Item); //! FE8U = 0x80176E9
-int GetItemIconId(Item); //! FE8U = 0x8017701
-int GetItemWeaponEffect(Item); //! FE8U = 0x8017725
-int GetItemUseEffect(Item); //! FE8U = 0x801773D
-int GetItemCostPerUse(Item); //! FE8U = 0x8017755
-int GetItemMaxCost(Item); //! FE8U = 0x801776D
-int GetItemWExp(Item); //! FE8U = 0x8017799
+u8 GetItemIndex(int item); //! FE8U = 0x80174ED
+char* GetItemName(int item); //! FE8U = 0x80174F5
+int GetItemDescId(int item); //! FE8U = 0x8017519
+int GetItemUseDescId(int item); //! FE8U = 0x8017531
+int GetItemType(int item); //! FE8U = 0x8017549
+u32 GetItemAttributes(int item); //! FE8U = 0x801756D
+int GetItemUses(int item); //! FE8U = 0x8017585
+int GetItemMaxUses(int item); //! FE8U = 0x80175B1
+int GetItemMight(int item); //! FE8U = 0x80175DD
+int GetItemHit(int item); //! FE8U = 0x80175F5
+int GetItemWeight(int item); //! FE8U = 0x801760D
+int GetItemCrit(int item); //! FE8U = 0x8017625
+int GetItemCost(int item); //! FE8U = 0x801763D
+int GetItemMinRange(int item); //! FE8U = 0x801766D
+int GetItemMaxRange(int item); //! FE8U = 0x8017685
+int GetItemEncodedRange(int item); //! FE8U = 0x80176A1
+int GetItemRequiredExp(int item); //! FE8U = 0x80176B9
+u8* GetItemEffectiveness(int item); //! FE8U = 0x80176D1
+u8* GetItemStatBonuses(int item); //! FE8U = 0x80176E9
+int GetItemIconId(int item); //! FE8U = 0x8017701
+int GetItemWeaponEffect(int item); //! FE8U = 0x8017725
+int GetItemUseEffect(int item); //! FE8U = 0x801773D
+int GetItemCostPerUse(int item); //! FE8U = 0x8017755
+int GetItemMaxCost(int item); //! FE8U = 0x801776D
+int GetItemAwardedExp(int item); //! FE8U = 0x8017799
 
 const ItemData* GetItemData(u8); //! FE8U = 0x80177B1
 

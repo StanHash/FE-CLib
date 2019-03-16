@@ -13,13 +13,13 @@ struct BattleMapState {
 	/* 04 */ u8 statebits; // TODO: enumerate bits
 	/* 06 */ u16 savedVCount;
 	/* 08 */ u32 _unk08;
-	/* 0C */ struct Vector2U cameraRealPos;
-	/* 10 */ struct Vector2U _unk10;
-	/* 14 */ struct Vector2U cursorMapPos;
-	/* 18 */ struct Vector2U cursorMapPosPrev;
-	/* 1C */ struct Vector2U _unk1C;
-	/* 20 */ struct Vector2U cursorDisplayRealPos;
-	/* 24 */ struct Vector2 _unk24;
+	/* 0C */ struct Vec2u cameraRealPos;
+	/* 10 */ struct Vec2u _unk10;
+	/* 14 */ struct Vec2u cursorMapPos;
+	/* 18 */ struct Vec2u cursorMapPosPrev;
+	/* 1C */ struct Vec2u _unk1C;
+	/* 20 */ struct Vec2u cursorDisplayRealPos;
+	/* 24 */ struct Vec2 _unk24;
 	/* 28 */ u8 _pad28[0x3C - 0x28];
 	/* 3C */ u8 _unk3C;
 	/* 3D */ u8 partialActionTaken; // bits
@@ -46,5 +46,7 @@ void LockGameGraphicsLogic(void); //! FE8U = 0x8030185
 void UnlockGameGraphicsLogic(void); //! FE8U = 0x80301B9
 
 void ClearBG0BG1(void); //! FE8U = 0x804E885
+
+void LoadGameCoreGfx(void);
 
 #endif // GBAFE_GAME_H

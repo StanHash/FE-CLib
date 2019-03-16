@@ -64,7 +64,7 @@ void SaveMetadata_Save(struct SaveBlockMetadata* sbm, int blockId);
 void LoadGeneralGameMetadata(struct SaveGlobalMetadata* buf);
 void SaveGeneralGameMetadata(struct SaveGlobalMetadata* buf);
 
-void GGM_SetCharacterKnown(unsigned charId, struct SaveGlobalMetadata* sgm);
+void SGM_SetCharacterKnown(unsigned charId, struct SaveGlobalMetadata* sgm);
 
 void UpdateLastUsedGameSaveSlot(int blockId);
 

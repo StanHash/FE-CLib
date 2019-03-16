@@ -3,11 +3,11 @@
 
 #include "common.h"
 
-void SetupDebugFontForBG(int bgIndex, unsigned gfxTileBase); //! FE8U = 0x800378D
-void DBG_BG_Print(u16* target, const char* string); //! FE8U = 0x8003805
-void SetupDebugFontForOBJ(int gfxObjTileBase, unsigned objPalIndex); //! FE8U = 0x8003B25
-void PrintDebugStringAsOBJ(int x, int y, const char* string); //! FE8U = 0x8003BB1
-void PrintDebugNumberDec(int x, int y, unsigned Number, unsigned DigitCount); //! FE8U = 0x8003BFD
-void PrintDebugNumberHex(int x, int y, unsigned Number, unsigned DigitCount); //! FE8U = 0x8003C21
+void DebugBgFontInit(int bgIndex, unsigned gfxTileBase); //! FE8U = 0x800378D
+void DebugBgPrint(u16* target, const char* string); //! FE8U = 0x8003805
+void DebugObjFontInit(int gfxObjTileBase, unsigned objPalIndex); //! FE8U = 0x8003B25
+void DebugObjPrint(int x, int y, const char* string); //! FE8U = 0x8003BB1
+void DebugObjPrintNumber(int x, int y, unsigned Number, unsigned DigitCount); //! FE8U = 0x8003BFD
+void DebugObjPrintNumberHex(int x, int y, unsigned Number, unsigned DigitCount); //! FE8U = 0x8003C21
 
 #endif // GBAFE_DEBUG_PRINT_H
