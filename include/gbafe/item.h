@@ -171,7 +171,7 @@ int CanUnitUseWeaponNow(const struct Unit*, int item); //! FE8U = (0x08016750+1)
 int CanUnitUseStaff(const struct Unit*, int item); //! FE8U = (0x080167A4+1)
 int CanUnitUseStaffNow(const struct Unit*, int item); //! FE8U = (0x08016800+1)
 
-int GetItemAfterUse(int item); //! FE8U = (0x08016AEC+1)
+u16 GetItemAfterUse(int item); //! FE8U = (0x08016AEC+1)
 
 int GetUnitEquippedWeapon(const struct Unit*); //! FE8U = (0x08016B28+1)
 int GetUnitEquippedWeaponSlot(const struct Unit*); //! FE8U = (0x08016B58+1)

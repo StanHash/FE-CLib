@@ -19,6 +19,7 @@ void VBlankIntrWait(void);
 unsigned GetBiosChecksum(void);
 
 int Div(int a, int b);
+int Mod(int a, int b);
 int DivArm(int b, int a);
 int Sqrt(int n);
 int ArcTan(int n);
