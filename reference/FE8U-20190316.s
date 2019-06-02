@@ -716,9 +716,9 @@ SET_FUNC GetItemDefBonus, 0x80164B1
 SET_FUNC GetItemResBonus, 0x80164E1
 SET_FUNC GetItemLckBonus, 0x8016511
 SET_FUNC MakeNewItem, 0x8016541
-SET_FUNC CanUnitUseWeaponNow, 0x8016575
+SET_FUNC CanUnitUseWeapon, 0x8016575
 SET_FUNC CanUnitUseWeaponNow, 0x8016751
-SET_FUNC CanUnitUseStaffNow, 0x80167A5
+SET_FUNC CanUnitUseStaff, 0x80167A5
 SET_FUNC CanUnitUseStaffNow, 0x8016801
 SET_FUNC DrawItemMenuLine, 0x8016849
 SET_FUNC DrawItemMenuLineLong, 0x80168E1

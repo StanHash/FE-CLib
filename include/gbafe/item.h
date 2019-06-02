@@ -9,7 +9,8 @@ typedef u16 Item;
 
 typedef struct ItemData ItemData;
 
-struct ItemStatBonuses {
+struct ItemStatBonuses
+{
 	s8 hpBonus;
 	s8 powBonus;
 	s8 sklBonus;
@@ -21,7 +22,8 @@ struct ItemStatBonuses {
 	s8 movBonus; // unused
 };
 
-struct ItemData {
+struct ItemData
+{
 	/* 00 */ u16 nameTextId;
 	/* 02 */ u16 descTextId;
 	/* 04 */ u16 useDescTextId;
@@ -51,7 +53,8 @@ struct ItemData {
 	/* 20 */ u8  weaponExp;
 };
 
-enum {
+enum
+{
 	// Item attributes
 
 	IA_NONE		   = 0,
@@ -84,7 +87,8 @@ enum {
 	IA_LOCK_ANY = (IA_LOCK_0 | IA_LOCK_1 | IA_LOCK_2 | IA_LOCK_3 | IA_LOCK_4 | IA_LOCK_5 | IA_LOCK_6 | IA_LOCK_7 | IA_UNUSABLE)
 };
 
-enum {
+enum
+{
 	ITYPE_SWORD = 0,
 	ITYPE_LANCE = 1,
 	ITYPE_AXE   = 2,
@@ -100,7 +104,8 @@ enum {
 	ITYPE_12	= 12,
 };
 
-enum {
+enum
+{
 	WPN_EFFECT_NONE	= 0,
 	WPN_EFFECT_POISON  = 1,
 	WPN_EFFECT_HPDRAIN = 2,
@@ -109,7 +114,8 @@ enum {
 	WPN_EFFECT_PETRIFY = 5,
 };
 
-enum {
+enum
+{
 	// Unit ranges are a (sometimes) weirdly hardcoded.
 	// A flagset value is used to represent the combined ranges of a unit's usable items
 	// That's what those "reaches" bits are for.
@@ -124,7 +130,8 @@ enum {
 	REACH_MAGBY2 = (1 << 5),
 };
 
-enum {
+enum
+{
 	// Weapon level identifiers
 
 	WPN_LEVEL_0 = 0,
@@ -136,7 +143,8 @@ enum {
 	WPN_LEVEL_S = 6,
 };
 
-enum {
+enum
+{
 	// Weapon exp needed to have a given weapon level
 
 	WPN_EXP_0 = 0,
@@ -205,6 +213,9 @@ u32 GetUnitStaffReachBits(const struct Unit*); //! FE8U = 0x80172F9
 
 int GetConvoyItemCostSum(void); //! FE8U = 0x801737D
 
+void SetItemUnsealedForCharacter(int item, u8 charId);
+s8 IsItemUnsealedForUnit(struct Unit* unit, int item);
+
 u8 GetItemIndex(int item); //! FE8U = 0x80174ED
 char* GetItemName(int item); //! FE8U = 0x80174F5
 int GetItemDescId(int item); //! FE8U = 0x8017519
@@ -223,7 +234,7 @@ int GetItemMaxRange(int item); //! FE8U = 0x8017685
 int GetItemEncodedRange(int item); //! FE8U = 0x80176A1
 int GetItemRequiredExp(int item); //! FE8U = 0x80176B9
 u8* GetItemEffectiveness(int item); //! FE8U = 0x80176D1
-u8* GetItemStatBonuses(int item); //! FE8U = 0x80176E9
+struct ItemStatBonuses* GetItemStatBonuses(int item); //! FE8U = 0x80176E9
 int GetItemIconId(int item); //! FE8U = 0x8017701
 int GetItemWeaponEffect(int item); //! FE8U = 0x8017725
 int GetItemUseEffect(int item); //! FE8U = 0x801773D
@@ -232,5 +243,10 @@ int GetItemMaxCost(int item); //! FE8U = 0x801776D
 int GetItemAwardedExp(int item); //! FE8U = 0x8017799
 
 const ItemData* GetItemData(u8); //! FE8U = 0x80177B1
+
+// TODO: move elsewhere?
+u16* GetConvoyItemArray(void);
+
+enum { CONVOY_ITEM_COUNT = 100 };
 
 #endif // GBAFE_ITEM_H

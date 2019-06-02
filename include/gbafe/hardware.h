@@ -9,7 +9,8 @@
 typedef struct LCDIOBuffer LCDIOBuffer;
 typedef struct KeyStatusBuffer KeyStatusBuffer;
 
-struct LCDIOBuffer {
+struct LCDIOBuffer
+{
 	/* 00 */ struct DispControl dispControl;
 	/* 04 */ struct DispStat dispStat;
 
@@ -51,7 +52,8 @@ struct LCDIOBuffer {
 	/* 68 */ s8 colorAddition;
 };
 
-struct KeyStatusBuffer {
+struct KeyStatusBuffer
+{
 	u8 repeatDelay; // initial delay before generating auto-repeat presses
 	u8 repeatInterval; // time between auto-repeat presses
 	u8 repeatTimer; // (decreased by one each frame, reset to repeatDelay when Presses change and repeatInterval when reaches 0)
@@ -78,7 +80,24 @@ extern u16* gBgMapTarget[4]; //! FE8U = 0x2024CA8
 
 extern struct KeyStatusBuffer gKeyState; //! FE8U = 0x2024CC0
 
-#define BG_LOCATED_TILE(apBg, aXTile, aYTile) (&(apBg)[(aXTile) + (aYTile) * 0x20])
+#define TILEMAP_INDEX(aX, aY) (0x20 * (aY) + (aX))
+#define TILEMAP_LOCATED(aMap, aX, aY) (TILEMAP_INDEX((aX), (aY)) + (aMap))
+#define BG_LOCATED_TILE(aMap, aX, aY) (&(aMap)[(aX) + (aY) * 0x20])
+
+#define TILEREF(aChar, aPal) ((aChar) + ((aPal) << 12))
+
+#define BG_SYNC_BIT(aBg) (1 << (aBg))
+
+enum
+{
+    BG0_SYNC_BIT = BG_SYNC_BIT(0),
+    BG1_SYNC_BIT = BG_SYNC_BIT(1),
+    BG2_SYNC_BIT = BG_SYNC_BIT(2),
+    BG3_SYNC_BIT = BG_SYNC_BIT(3),
+};
+
+#define ApplyPalettes(aSrc, aPalId, aPalCount) CopyToPaletteBuffer((aSrc), 0x20 * (aPalId), 0x20 * (aPalCount))
+#define ApplyPalette(aSrc, aPalId) ApplyPalettes((aSrc), (aPalId), 1)
 
 void CopyToPaletteBuffer(const u16 src[], unsigned targetOffset, unsigned size); //! FE8U = 0x8000DB9
 

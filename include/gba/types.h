@@ -127,6 +127,16 @@ struct BlendControl
     unsigned : 2;
 };
 
+enum
+{
+    // for use with BlendControl::effect
+
+    BLEND_EFFECT_NONE     = 0,
+    BLEND_EFFECT_ALPHA    = 1,
+    BLEND_EFFECT_BRIGHTEN = 2,
+    BLEND_EFFECT_DARKEN   = 3,
+};
+
 struct BlendAlpha
 {
     unsigned eva : 5;
