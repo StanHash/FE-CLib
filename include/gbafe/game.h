@@ -21,7 +21,7 @@ struct BattleMapState {
 	/* 20 */ struct Vec2u cursorDisplayRealPos;
 	/* 24 */ struct Vec2 _unk24;
 	/* 28 */ u8 _pad28[0x3C - 0x28];
-	/* 3C */ u8 _unk3C;
+	/* 3C */ u8 boolHasJustResumed;
 	/* 3D */ u8 partialActionTaken; // bits
 };
 

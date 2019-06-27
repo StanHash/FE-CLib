@@ -16,6 +16,7 @@ typedef struct CharacterData CharacterData;
 typedef struct ClassData ClassData;
 
 struct SMSHandle;
+struct SupportData;
 
 enum {
 	// Config
@@ -73,7 +74,7 @@ struct CharacterData {
 
 	/* 28 */ u32 attributes;
 
-	/* 2C */ void* pSupportData;
+	/* 2C */ const struct SupportData* pSupportData;
 	/* 30 */ void* pUnk30;
 };
 
@@ -365,6 +366,8 @@ enum {
 #define UNIT_IS_PHANTOM(aUnit) ((aUnit)->pClassData->number == CLASS_PHANTOM)
 
 #define UNIT_ARENA_LEVEL(aUnit) (((aUnit)->state >> 17) & 0x7)
+
+#define UNIT_SUPPORT_DATA(aUnit) ((aUnit)->pCharacterData->pSupportData)
 
 // Compat with old FE-CLib
 #define UNIT_ATTRIBUTES(aUnit) UNIT_CATTRIBUTES(aUnit)

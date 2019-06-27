@@ -39,6 +39,8 @@ extern "C" {
 #include "gbafe/save.h"
 #include "gbafe/event.h"
 #include "gbafe/battle.h"
+#include "gbafe/support.h"
+#include "gbafe/wm.h"
 
 #ifdef __cplusplus
 } // extern "C"

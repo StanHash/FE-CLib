@@ -62,6 +62,8 @@ void MakeUIWindowTileMap_BG0BG1(int x, int y, int w, int h, int style); //! FE8U
 
 void StartStatScreen(const struct Unit* unit, struct Proc* parent); //! FE8U = 0x808894D
 
+int GetBattleMapType(void); //! FE8U = 0x80BD069
+
 // int div(int, int); // FE8U = (0x080D1AD4+1)
 // int mod(int, int); // FE8U = (0x080D1B4C+1)
 
