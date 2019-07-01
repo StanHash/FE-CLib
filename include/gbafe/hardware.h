@@ -19,10 +19,10 @@ struct LCDIOBuffer
 	/* 0C */ struct BgControl bgControl[4];
 	/* 1C */ struct Vec2u bgOffset[4];
 
-	/* 2C */ u16 win0h;
-	/* 2E */ u16 win1h;
-	/* 30 */ u16 win0v;
-	/* 32 */ u16 win1v;
+	/* 2C */ u8 win0_right, win0_left;
+	/* 2E */ u8 win1_right, win1_left;
+	/* 30 */ u8 win0_bottom, win0_top;
+	/* 32 */ u8 win1_bottom, win1_top;
 
 	/* 34 */ struct WinControl winControl;
 	
@@ -98,6 +98,22 @@ enum
 
 #define ApplyPalettes(aSrc, aPalId, aPalCount) CopyToPaletteBuffer((aSrc), 0x20 * (aPalId), 0x20 * (aPalCount))
 #define ApplyPalette(aSrc, aPalId) ApplyPalettes((aSrc), (aPalId), 1)
+
+#define SetWin0Box(aLeft, aTop, aRight, aBottom) \
+do { \
+	gLCDIOBuffer.win0_left   = (aLeft); \
+	gLCDIOBuffer.win0_top    = (aTop); \
+	gLCDIOBuffer.win0_right  = (aRight); \
+	gLCDIOBuffer.win0_bottom = (aBottom); \
+} while (0)
+
+#define SetWin1Box(aLeft, aTop, aRight, aBottom) \
+do { \
+	gLCDIOBuffer.win1_left   = (aLeft); \
+	gLCDIOBuffer.win1_top    = (aTop); \
+	gLCDIOBuffer.win1_right  = (aRight); \
+	gLCDIOBuffer.win1_bottom = (aBottom); \
+} while (0)
 
 void CopyToPaletteBuffer(const u16 src[], unsigned targetOffset, unsigned size); //! FE8U = 0x8000DB9
 

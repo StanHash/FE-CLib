@@ -167,4 +167,6 @@ void MU_Hide(struct MUProc* moveunit); //! FE8U = 0x80797D5
 void MU_Show(struct MUProc* moveunit); //! FE8U = 0x80797DD
 void MU_SetDisplayPosition(struct MUProc* moveunit, int x, int y); //! FE8U = (0x080797E4+1)
 
+extern const struct ProcInstruction gProc_MoveUnit[];
+
 #endif // GBAFE_MU_H

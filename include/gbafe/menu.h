@@ -15,7 +15,7 @@ typedef struct MenuProc MenuProc;
 typedef struct MenuCommandProc MenuCommandProc;
 
 struct MenuGeometry {
-	u8 x, y, h, w;
+	u8 x, y, w, h;
 };
 
 struct MenuDefinition {

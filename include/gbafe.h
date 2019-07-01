@@ -41,6 +41,7 @@ extern "C" {
 #include "gbafe/battle.h"
 #include "gbafe/support.h"
 #include "gbafe/wm.h"
+#include "gbafe/dialogue.h"
 
 #ifdef __cplusplus
 } // extern "C"
