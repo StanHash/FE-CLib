@@ -17,6 +17,10 @@ enum
 #define SIN_LOOKUP(value) (gSinLookup[(value) % 0x100])
 #define COS_LOOKUP(value) (gCosLookup[(value) % 0x100])
 
+#define ABS(aValue) ((aValue) >= 0 ? (aValue) : -(aValue))
+
+#define RECT_DISTANCE(aXA, aYA, aXB, aYB) (ABS((aXA) - (aXB)) + ABS((aYA) - (aYB)))
+
 extern const short gSinLookup[]; //! FE8U = (0x080D751C)
 extern const short gCosLookup[]; //! FE8U = (0x080D759C)
 

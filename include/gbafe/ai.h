@@ -7,9 +7,12 @@ typedef struct AiDecision AiDecision;
 typedef struct AiData     AiData;
 
 typedef void(*CpOrderFunc)(struct Proc*);
+typedef int(*CpPerformFunc)(struct Proc*);
 typedef void(*AiDecitionMakerFunc)(void);
+typedef int(*AiUnitPredicate)(struct Unit*);
 
-struct AiDecision {
+struct AiDecision
+{
 	/* 00 */ u8 decisionType;
 
 	/* 01 */ u8 unitIndex;
@@ -28,7 +31,8 @@ struct AiDecision {
 	/* 0A */ u8 decisionTaken;
 };
 
-struct AiData {
+struct AiData
+{
 	/* 00 */ u8 aiUnits[0x74];
 
 	/* 74 */ u8* aiUnitIt;
@@ -40,11 +44,16 @@ struct AiData {
 
 	/* 7B */ u8 aiConfig;
 
-	/* 7C */ u8 _pad7C[0x85 - 0x7C];
-
+	/* 7C */ u8 unk7C;
+	/* 7D */ u8 battleDecisionWeightTableId;
+	/* 7E */ u8 unk7E;
+	/* 7F */ u8 unk7F;
+	/* 80 */ u32 specialItemsConfig;
+	/* 84 */ u8 unk84;
 	/* 85 */ u8 highestBlueMov;
+	/* 86 */ u8 scrResult;
 
-	/* 86 */ u8 _pad86[0x90 - 0x86];
+	/* 87 */ u8 unk87[0x90 - 0x87];
 
 	/* 90 */ struct AiDecision decision;
 };
@@ -81,5 +90,10 @@ void AiDecisionMaker_SpecialItems(void);
 void AiFillMovementMapForUnit(struct Unit*);
 int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vec2* out);
 void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
+
+s8 AreAllegiancesAllied(int factionA, int factionB);
+
+s8 AiGetClosestUnitPosition(AiUnitPredicate pred, struct Vec2* result); //!< FE8U:0803A925
+void AiTryMoveTowards(int x, int y, int decisionId, int safetyThreshold, int ignoreEnemies); //!< FE8U:0803BA09
 
 #endif // GBAFE_AI_H

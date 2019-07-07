@@ -1,7 +1,8 @@
 #ifndef GBAFE_STANDUNIT_H
 #define GBAFE_STANDUNIT_H
 
-struct SMSHandle {
+struct SMSHandle
+{
 	/* 00 */ struct SMSHandle* pNext;
 
 	/* 04 */ short xDisplay;
@@ -13,13 +14,27 @@ struct SMSHandle {
 	/* 0B */ s8 config;
 };
 
-unsigned GetUnitBattleMapSpritePaletteIndex(const struct Unit*); //! FE8U = 0x802713D
-unsigned GetUnitMapSpritePaletteIndex(const struct Unit*); //! FE8U = 0x8027169
+struct SMSData
+{
+	/* 00 */ u16 unk00;
+	/* 02 */ u16 size;
+	/* 04 */ const u8* pGraphics;
+};
 
-void SMS_UpdateFromGameData(void); //! FE8U = (0x80271A1)
-void SMS_DisplayAllFromInfoStructs(void); //! FE8U = 0x80273A5
+extern const struct SMSData gStandingMapSpriteData[];
 
-void HideUnitSMS(struct Unit* unit); //! FE8U = (0x0802810C+1)
-void ShowUnitSMS(struct Unit* unit); //! FE8U = (0x08028130+1)
+#define SMS_SIZE(aId) (gStandingMapSpriteData[(aId)].size)
+
+unsigned SMS_RegisterUsage(unsigned id); //!< FE8U:080267FD
+
+unsigned GetUnitBattleMapSpritePaletteIndex(struct Unit*); //!< FE8U:0802713D
+unsigned GetUnitMapSpritePaletteIndex(struct Unit*); //!< FE8U:08027169
+
+void SMS_UpdateFromGameData(void); //!< FE8U:080271A1
+struct SMSHandle* SMS_GetNewInfoStruct(int y); //!< FE8U:0802736D
+void SMS_DisplayAllFromInfoStructs(void); //!< FE8U:080273A5
+
+void HideUnitSMS(struct Unit* unit); //!< FE8U:0802810D
+void ShowUnitSMS(struct Unit* unit); //!< FE8U:08028131
 
 #endif // GBAFE_STANDUNIT_H

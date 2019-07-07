@@ -14,11 +14,13 @@ typedef struct MenuCommandDefinition MenuCommandDefinition;
 typedef struct MenuProc MenuProc;
 typedef struct MenuCommandProc MenuCommandProc;
 
-struct MenuGeometry {
+struct MenuGeometry
+{
 	u8 x, y, w, h;
 };
 
-struct MenuDefinition {
+struct MenuDefinition
+{
 	/* 00 */ struct MenuGeometry geometry;
 
 	/* 04 */ u8 style;
@@ -33,7 +35,8 @@ struct MenuDefinition {
 	/* 20 */ void(*onHelpBox)(MenuProc*, MenuCommandProc*);
 };
 
-struct MenuCommandDefinition {
+struct MenuCommandDefinition
+{
 	/* 00 */ const char* rawName;
 
 	/* 04 */ u16 nameId, helpId;
@@ -50,7 +53,8 @@ struct MenuCommandDefinition {
 	/* 20 */ void(*onSwitchOut)(MenuProc*, MenuCommandProc*);
 };
 
-struct MenuProc {
+struct MenuProc
+{
 	/* 00 */ PROC_HEADER;
 
 	/* 2C */ struct MenuGeometry geometry;
@@ -70,7 +74,8 @@ struct MenuProc {
 	/* 68 */ u16 _u68;
 };
 
-struct MenuCommandProc {
+struct MenuCommandProc
+{
 	/* 00 */ PROC_HEADER;
 
 	/* 2A */ u16 xDrawTile;
@@ -84,7 +89,8 @@ struct MenuCommandProc {
 	/* 3D */ u8 availability;
 };
 
-enum {
+enum
+{
 	// Menu command availability values
 
 	MCA_USABLE = 1,
@@ -92,7 +98,8 @@ enum {
 	MCA_NONUSABLE = 3,
 };
 
-enum MenuEffect {
+enum MenuEffect
+{
 	//
 	ME_NONE = 0,
 

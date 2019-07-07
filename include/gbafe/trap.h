@@ -94,6 +94,8 @@ int AreMapChangeTriggered(int id); //! FE8U = 0x802E639
 void HideIfUnderRoof(struct Unit*); //! FE8U = (0x0802E660+1)
 void UpdateUnitsUnderRoof(void); //! FE8U = (0x0802E690+1)
 
+struct Trap* GetTrap(int id); //!< FE8U:0802EB8D
+
 // other file?
 void AddGorgonEggTrap(int a, int b, int c, int d, int e); //! FE8U = (0x08037928+1)
 struct Trap* AddBallista(int x, int y, int itemIndex); //! FE8U = (0x08037A04+1)
