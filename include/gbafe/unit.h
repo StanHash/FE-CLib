@@ -424,6 +424,7 @@ int CanUnitRescue(const struct Unit*, const struct Unit*); //! FE8U = 0x801831D
 void UnitRescue(struct Unit*, struct Unit*); //! FE8U = 0x801834D
 void UnitDrop(struct Unit*, int x, int y); //! FE8U = 0x8018371
 void UnitGive(struct Unit*, struct Unit*); //! FE8U = 0x80183C9
+void UnitKill(struct Unit*); //!< FE8U:080183FD
 void UnitChangeFaction(struct Unit* unit, int faction); //! FE8U = 0x8018431
 void UnitFinalizeMovement(struct Unit*); //! FE8U = 0x801849D
 
