@@ -23,10 +23,10 @@ struct AiDecision
 	/* 04 */ u8 _pad04[0x06 - 0x04];
 
 	/* 06 */ u8 unitTargetIndex;
-	/* 07 */ u8 usedItemSlot;
 
-	/* 08 */ u8 xOther;
-	/* 09 */ u8 yOther;
+	/* 07 */ u8 paramA;
+	/* 08 */ u8 paramB;
+	/* 09 */ u8 paramC;
 
 	/* 0A */ u8 decisionTaken;
 };
@@ -67,6 +67,7 @@ enum {
 	AI_DECISION_STAFF  = 5,
 	AI_DECISION_CHEST  = 6,
 	AI_DECISION_DANCE  = 7,
+	AI_DECISION_TALK   = 8,
 };
 
 extern struct AiData gAiData;
@@ -89,8 +90,8 @@ void AiDecisionMaker_SpecialItems(void);
 
 void AiFillMovementMapForUnit(struct Unit*);
 int GetAiSafestAccessibleAdjacentPosition(int x, int y, struct Vec2* out);
-void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int itemSlot, int xPos2, int yPos2);
-
+void AiSetDecision(int xPos, int yPos, int actionId, int targetId, int a, int b, int c);
+void AiUpdateDecision(int actionId, int targetId, int a, int b, int c);
 s8 AreAllegiancesAllied(int factionA, int factionB);
 
 s8 AiGetClosestUnitPosition(AiUnitPredicate pred, struct Vec2* result); //!< FE8U:0803A925
