@@ -27,6 +27,8 @@ extern const struct SMSData gStandingMapSpriteData[];
 
 unsigned SMS_RegisterUsage(unsigned id); //!< FE8U:080267FD
 
+void SMS_SyncIndirect(void); //!< FE8U:08026F95
+
 unsigned GetUnitBattleMapSpritePaletteIndex(struct Unit*); //!< FE8U:0802713D
 unsigned GetUnitMapSpritePaletteIndex(struct Unit*); //!< FE8U:08027169
 

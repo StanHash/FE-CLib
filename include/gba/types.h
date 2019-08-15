@@ -67,7 +67,7 @@ struct BgControl
     unsigned mosaic : 1;
     unsigned colorMode : 1;
     unsigned mapBaseBlock : 5;
-    unsigned areaOverflowMode : 1;
+    unsigned wrap : 1;
     unsigned screenSize : 2;
 };
 

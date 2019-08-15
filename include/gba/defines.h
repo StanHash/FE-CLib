@@ -21,4 +21,6 @@
 #define COLOR_WHITE COLOR_RGB(31, 31, 31)
 #define COLOR_BLACK COLOR_RGB(0,  0,  0)
 
+#define PUREFUNC __attribute__((pure))
+
 #endif // GUARD_GBA_DEFINES

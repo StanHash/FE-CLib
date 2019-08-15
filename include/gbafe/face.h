@@ -8,14 +8,20 @@ typedef struct PortraitData PortraitData;
 typedef struct FaceProc FaceProc;
 typedef struct FaceGfxDefinition FaceGfxDefinition;
 
-struct PortraitData {
+struct PortraitData
+{
 	/* 00 */ const void* pPortraitGraphics;
 	/* 04 */ const void* pMiniPortraitGraphics;
 	/* 08 */ const u16* pPortraitPalette;
+	/* 0C */ const void* unk0C;
+	/* 10 */ const void* unk10;
+	/* 14 */ const void* unk14;
+	/* 18 */ u8 blinkBehaviorKind;
 	/* More */
 };
 
-struct FaceProc {
+struct FaceProc
+{
 	/* 00 */ PROC_HEADER;
 
 	/* 2C */ const PortraitData* pPortraitData;
@@ -32,7 +38,23 @@ struct FaceProc {
 	/* 48 */ struct Proc* pEyeWinkProc;
 };
 
-struct FaceGfxDefinition {
+struct FaceBlinkProc
+{
+	/* 00 */ PROC_HEADER;
+
+	/* 2C */ u32 unk2C;
+	/* 30 */ u16 blinkControl;
+	/* 32 */ u16 unk32;
+	/* 34 */ u32 blinkInnerClock;
+	/* 38 */ u32 blinkIntervalClock;
+	/* 3C */ u16* output;
+	/* 40 */ u16 tileId;
+	/* 42 */ u16 paletteId;
+	/* 44 */ u16 portraitId;
+};
+
+struct FaceGfxDefinition
+{
 	const void* pTileRoot;
 	u16 paletteIndex;
 };

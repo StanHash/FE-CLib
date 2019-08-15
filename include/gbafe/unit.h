@@ -235,7 +235,7 @@ enum {
 	US_CANTOING	 = US_HAS_MOVED, // Alias
 	US_UNDER_A_ROOF = (1 << 7),
 	US_BIT8 = (1 << 8),
-	// = (1 << 9),
+	US_BIT9 = (1 << 9),
 	US_HAS_MOVED_AI = (1 << 10),
 	US_IN_BALLISTA  = (1 << 11),
 	US_DROP_ITEM	= (1 << 12),
@@ -250,7 +250,7 @@ enum {
 	US_BIT21		= (1 << 21),
 	US_BIT22		= (1 << 22),
 	// = (1 << 23),
-	// = (1 << 24),
+	US_BIT24 = (1 << 24),
 	US_BIT25 = (1 << 25),
 	US_BIT26 = (1 << 26),
 	// = (1 << 27),
