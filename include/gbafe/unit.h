@@ -142,7 +142,7 @@ struct Unit {
 
 	/* 08 */ s8 level;
 	/* 09 */ u8 exp;
-	/* 0A */ u8 unk0A_saved;
+	/* 0A */ u8 aiFlag;
 
 	/* 0B */ s8 index;
 

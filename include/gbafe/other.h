@@ -53,6 +53,8 @@ void StartBlockingBMXFADE(int locking, struct Proc* parent); //! FE8U = (0x0801D
 
 int BMXFADEExists(); //! FE8U = (0x0801DE18+1)
 
+void ChangeActiveUnitFacing(int x, int y); //!< FE8U:0801F50D
+
 void StartFadeOutBlackMedium(void);
 void WaitForFade(struct Proc* proc);
 
@@ -63,6 +65,8 @@ void EndBottomHelpText(void); //! FE8U = 0x8035749
 int IsBottomHelpTextActive(void); //! FE8U = 0x8035759
 
 void MakeUIWindowTileMap_BG0BG1(int x, int y, int w, int h, int style); //! FE8U = 0x804E369
+
+int GetFacingDirection(int xFrom, int yFrom, int xTo, int yTo); //!< FE8U:0807B9B9
 
 void StartStatScreen(const struct Unit* unit, struct Proc* parent); //! FE8U = 0x808894D
 
