@@ -42,6 +42,7 @@ extern "C" {
 #include "gbafe/support.h"
 #include "gbafe/wm.h"
 #include "gbafe/dialogue.h"
+#include "gbafe/drawutils.h"
 
 #ifdef __cplusplus
 } // extern "C"

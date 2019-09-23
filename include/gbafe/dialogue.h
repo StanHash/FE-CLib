@@ -18,6 +18,15 @@ enum
 	DIALOGUE_100 = (1 << 8),
 };
 
+enum
+{
+	// Dialogue options identifiers
+
+	DIALOGUE_OPT_BACK,
+	DIALOGUE_OPT_FIRST,
+	DIALOGUE_OPT_SECOND,
+};
+
 // TODO: more
 
 void Dialogue_InitGfx(unsigned tileId, unsigned lineCount, u8 boolUseBubble); //!< FE8U:0800680D

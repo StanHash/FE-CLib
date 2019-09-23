@@ -112,9 +112,6 @@ enum MenuEffect
 	ME_END_AFTER = (1 << 7),
 };
 
-// TODO: move to ui.h
-void UpdateHandCursor(int x, int y); //! FE8U = (0804E79C+1)
-
 MenuProc* StartMenuAdjusted(const MenuDefinition*, int xScreen, int xLeft, int xRight); //! FE8U = 0x804EB99
 MenuProc* StartMenuChild(const MenuDefinition*, Proc* parent); //! FE8U = 0x804EBC9
 MenuProc* StartMenu(const MenuDefinition*); //! FE8U = 0x804EBE5

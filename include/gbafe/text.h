@@ -132,6 +132,9 @@ void Font_InitForObj(struct FontData*, void* vram, int pal); //! FE8U = 0x800459
 void Text_Init2DLine(struct TextHandle*); //! FE8U = 0x80045D9
 void Text_Fill2DLine(struct TextHandle*); //! FE8U = 0x80046B5
 
+void NewGreenTextColorManager(struct Proc* parent); //!< FE8U:080049AD
+void EndGreenTextColorManager(void); //!< FE8U:080049D1
+
 void DrawSpecialUiChar(u16* out, int color, int chr);
 void DrawUiNumber(u16* out, int color, int number);
 void DrawUiNumberOrDoubleDashes(u16* out, int color, int number);

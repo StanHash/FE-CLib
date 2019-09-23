@@ -22,5 +22,6 @@
 #define COLOR_BLACK COLOR_RGB(0,  0,  0)
 
 #define PUREFUNC __attribute__((pure))
+#define ARMFUNC __attribute__((target("arm")))
 
 #endif // GUARD_GBA_DEFINES

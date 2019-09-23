@@ -31,8 +31,8 @@ void WriteOAMRotScaleData(unsigned index, int pa, int pb, int pc, int pd); //! F
 unsigned GetLoOAMSize(void); //! FE8U = 0x800224D
 
 // ARM
-void PushToHiOAM(u16 xBase, u16 yBase, const struct ObjData* data, u16 tileBase); //! FE8U = 0x8002BB9
-void PushToLoOAM(u16 xBase, u16 yBase, const struct ObjData* data, u16 tileBase); //! FE8U = 0x8002BCD
+void PushToHiOAM(int xBase, int yBase, const void* data, int tileBase); //! FE8U = 0x8002BB9
+void PushToLoOAM(int xBase, int yBase, const void* data, int tileBase); //! FE8U = 0x8002BCD
 
 void ClearOAMBuffer(u16* buffer, unsigned size); //! FE8U = 0x80D7499
 
