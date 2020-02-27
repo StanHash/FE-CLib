@@ -44,7 +44,7 @@ int GetUnitTotalSupportLevel(struct Unit* unit);
 void UnitGainSupportExp(struct Unit* unit, int num);
 void UnitGainSupportLevel(struct Unit* unit, int num);
 s8 CanUnitSupportNow(struct Unit* unit, int num);
-int GetUnitSupporterInitialExp(struct Unit* unit, int num);
+int GetUnitStartingSupportValue(struct Unit* unit, int num);
 int GetSupportDataIdForOtherUnit(struct Unit* unit, u8 charId);
 void ClearUnitSupports(struct Unit* unit);
 void ProcessTurnSupportExp(void);
