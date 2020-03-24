@@ -79,6 +79,8 @@ int GetBattleMapType(void); //! FE8U = 0x80BD069
 // int div(int, int); // FE8U = (0x080D1AD4+1)
 // int mod(int, int); // FE8U = (0x080D1B4C+1)
 
+int GetPartyGoldAmount(void);
+void SetPartyGoldAmount(int amt);
 
 void* memcpy(void* dest, const void* src, unsigned int count); //! FE8U = (0x080D1C0C+1)
 void* memset(void* dest, int ch, unsigned int count); //! FE8U = (0x080D1C6C+1)
