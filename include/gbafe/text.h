@@ -29,7 +29,7 @@ struct TextHandle {
 	/* 00 */ u16 tileIndexOffset;
 
 	/* 02 */ u8 xCursor;
-	/* 03 */ u8 colotId;
+	/* 03 */ u8 colorId;
 	
 	/* 04 */ u8 tileWidth;
 
