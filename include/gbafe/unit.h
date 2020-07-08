@@ -200,13 +200,13 @@ struct UnitDefinition {
 	/* 03 */ u8  allegiance : 2;
 	/* 03 */ u8  level	  : 5;
 
-	/* 04 */ u16 xPosition  : 6; /* 04:0 to 04:5 */
-	/* 04 */ u16 yPosition  : 6; /* 04:6 to 05:3 */
-	/* 05 */ u16 genMonster : 1; /* 05:4 */
-	/* 05 */ u16 itemDrop   : 1; /* 05:5 */
-	/* 05 */ u16 sumFlag	: 1; /* 05:6 */
-	/* 05 */ u16 extraData  : 9; /* 05:7 to 06:7 */
-	/* 07 */ u16 redaCount  : 8;
+	/* 04 */ u32 xPosition  : 6; /* 04:0 to 04:5 */
+	/* 04 */ u32 yPosition  : 6; /* 04:6 to 05:3 */
+	/* 05 */ u32 genMonster : 1; /* 05:4 */
+	/* 05 */ u32 itemDrop   : 1; /* 05:5 */
+	/* 05 */ u32 sumFlag	: 1; /* 05:6 */
+	/* 05 */ u32 extraData  : 9; /* 05:7 to 06:7 */
+	/* 07 */ u32 redaCount  : 8;
 
 	/* 08 */ const void* redas;
 
