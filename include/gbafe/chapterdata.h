@@ -111,9 +111,12 @@ struct ChapterState {
 	u32 textSpeedOption:2;
 	u32 gameSpeedOption:1;
 
-	u32 unk41_1:1;
+	u32 muteMusOption:1;
 	u32 muteSfxOption:1;
-	u32 unk41_3:5;
+  u32 windowColour:2;
+  u32 BWLDisplay:1;
+  u32 unk41_6:1;
+  u32 autoEndTurns:1;
 	u32 subtitleHelpOption:1;
 
 	u32 unk42_1:1;

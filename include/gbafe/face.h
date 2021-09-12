@@ -37,6 +37,7 @@ struct FaceProc
 	/* 44 */ struct Proc* _pu44Proc;
 	/* 48 */ struct Proc* pEyeWinkProc;
 };
+extern FaceProc* gpFaceProcs[4]; //! FE8U = 0x3004980
 
 struct FaceBlinkProc
 {
@@ -58,13 +59,17 @@ struct FaceGfxDefinition
 	const void* pTileRoot;
 	u16 paletteIndex;
 };
+extern FaceGfxDefinition gFaceGfxData[4]; //! FE8U = 0x202A68C.
 
 const PortraitData* GetPortraitData(int portraitId); //! FE8U = 0x8005515
 void Face_Init(void); //! FE8U = 0x8005529
 void SetFaceGfxConfig(const FaceGfxDefinition[4]); //! FE8U = 0x8005545
-struct FaceProc* StartFace(int faceId, int portraitId, int x, int y, int idk); //! FE8U = 0x800563D
+void FACE_Load(FaceProc* faceProc); //! FE8U = 0x8005595
+struct FaceProc* StartFace(int faceId, int portraitId, int x, int y, u32 displayBits); //! FE8U = 0x800563D
 void EndFace(struct FaceProc*); //! FE8U = 0x8005739
 void EndFaceById(int index); //! FE8U = 0x8005759
+int SetFaceDisplayBits(FaceProc* proc, u32 displayBits); //! FE8U = 0x8005771
+u32 GetFaceDisplayBits(FaceProc* proc); //! FE8U = 0x80057A5
 int ShouldPortraitBeSmol(int portraitId); //! FE8U = 0x8005C25
 
 #endif // GBAFE_FACE_H
