@@ -235,8 +235,8 @@ enum
 {
     KEY_BUTTON_A      = (1 << 0),
     KEY_BUTTON_B      = (1 << 1),
-    KEY_BUTTON_START  = (1 << 2),
-    KEY_BUTTON_SELECT = (1 << 3),
+    KEY_BUTTON_SELECT = (1 << 2),
+    KEY_BUTTON_START  = (1 << 3),
     KEY_DPAD_RIGHT    = (1 << 4),
     KEY_DPAD_LEFT     = (1 << 5),
     KEY_DPAD_UP       = (1 << 6),
