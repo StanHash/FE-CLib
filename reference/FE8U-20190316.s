@@ -11,9 +11,11 @@
 	.set    \name, \value
 .endm
 
-@ division & other libgcc functions
-SET_FUNC __aeabi_idiv,    __divsi3
-SET_FUNC __aeabi_idivmod, __modsi3
+@ division runtime
+SET_FUNC __aeabi_idiv, Div
+SET_FUNC __aeabi_uidiv, __udivsi3
+SET_FUNC __aeabi_idivmod, Div
+SET_FUNC __aeabi_uidivmod, Div @ WARNING: this one won't work for large numbers
 
 SET_FUNC GlobalIRQHandler, 0x80000FC
 SET_FUNC ARM_ClearOAMBuffer, 0x8000304
