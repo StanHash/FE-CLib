@@ -81,4 +81,8 @@ int GetBattleAnimRoundType(int index); //! FE8U = 0x8058A0D
 
 void StartEkrNamewinAppear(int, int, int);
 
+// This function starts and returns a proc that mimics an AIS, without adding an AIS to the AISarray.
+// unk3 is some kind of control code I think.
+struct Proc* StartEkrsubAnimeEmulator(s16 X, s16 Y, void* frameData, u8 unk3, struct Proc* parent, u32 OAM0OAM1, u16 OAM2); //! FE8U = 0x80716C9
+
 #endif // GBAFE_ANIMINTERPRETER_H

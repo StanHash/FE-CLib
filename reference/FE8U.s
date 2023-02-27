@@ -12,8 +12,9 @@
 .endm
 
 @ division & other libgcc functions
-SET_FUNC __aeabi_idiv,    __divsi3
-SET_FUNC __aeabi_idivmod, __modsi3
+SET_FUNC __aeabi_idiv,      __divsi3
+SET_FUNC __aeabi_idivmod,   Div
+SET_FUNC __aeabi_uidivmod,  Div
 
 SET_FUNC GlobalIRQHandler, 0x80000FC
 SET_FUNC ARM_ClearOAMBuffer, 0x8000304
@@ -342,12 +343,15 @@ SET_FUNC Dialogue_SetActiveFacePosition, 0x8007839
 SET_FUNC DialogueMain_OnEnd, 0x8007C0D
 SET_FUNC DialoguePauseTimer_OnLoop, 0x8007C29
 SET_FUNC NewTextBluArrowAndButtonChecker, 0x8007CD9
+SET_FUNC Procs_TextBoxSlideAnimation2Loop, 0x8007DA5
 SET_FUNC StartDialogueTextChoice, 0x8007DE9
 SET_FUNC DialogueTextChoice_OnLoop, 0x8007E9D
+SET_FUNC Procs_TextBoxSlideAnimationLoop, 0x8007FDD
 SET_FUNC GetTextPauseDurationFromControlCode, 0x8008199
 SET_FUNC Dialogue_ClearTextBoxes, 0x80081A9
 SET_FUNC Dialogue_ClearText, 0x80081ED
 SET_FUNC NewDialogueBoxAppearingAnimator, 0x80083E1
+SET_FUNC Dialogue_BoxAppearingAnimationLoop, 0x80083F9
 SET_FUNC nullsub_74, 0x80087A5
 SET_FUNC DialogueExists, 0x80089D1
 SET_FUNC FaceExists, 0x80089E9

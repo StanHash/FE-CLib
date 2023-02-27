@@ -410,7 +410,7 @@ void UnitLoadStatsFromChracter(struct Unit*, const struct CharacterData*); //! F
 void FixROMUnitStructPtr(struct Unit*); //! FE8U = 0x8017EBD
 void UnitLoadSupports(struct Unit*); //! FE8U = 0x8017EF5
 void UnitAutolevelWExp(struct Unit*); //! FE8U = 0x8017F21
-void UnitAutolevelCore(struct Unit*, int, int); //! FE8U = 0x8017FC5
+void UnitAutolevelCore(struct Unit*, u8 classIndex, s8 levelCount); //! FE8U = 0x8017FC5
 void UnitAutolevelPenalty(struct Unit*, int, int); //! FE8U = 0x8018065
 void UnitApplyBonusLevels(struct Unit*, int); //! FE8U = 0x80180CD
 void UnitAutolevel(struct Unit*); //! FE8U = 0x8018121

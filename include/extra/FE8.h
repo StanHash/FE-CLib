@@ -15,6 +15,9 @@ const void _ProcSleepCallback(Proc* proc);
 const void* MMS_GetGfx(u8 classID);
 const void Sound_SongTransition(u16 songID, u32 unk1, u32 unk2, int speed, u32 unk4);
 const Proc* StartScreenMenuScrollingBg(Proc* parent, void* graphicsDest, u8 paletteSlot); //! FE8U = 0x8086BB8
+const void SetEventId(u16 eventId); //! FE8U = 0x8083D80
+const void UnsetEventId(u16 eventId); //! FE8U = 0x8083D94
+const u8 CheckEventId(u16 eventId); //! FE8U = 0x8083DA8
 
 // Procs.
 extern const ProcInstruction gProc_FadeOut[];
