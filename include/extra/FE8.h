@@ -42,3 +42,6 @@ extern const ObjData gObj_16x32;
 extern u8 gSMSGfxBuffer_Frame1[0x2000];
 extern u8 gSMSGfxBuffer_Frame2[0x2000];
 extern u8 gSMSGfxBuffer_Frame3[0x2000];
+extern u16 gpStatScreenPageBg0Map[0x280]; //! FE8U = 0x2003D2C
+extern u16 gpStatScreenPageBg1Map[0x280]; //! FE8U = 0x200422C
+extern u16 gpStatScreenPageBg2Map[0x280]; //! FE8U = 0x200472C
