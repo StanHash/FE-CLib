@@ -70,6 +70,7 @@ struct KeyStatusBuffer
 extern struct LCDIOBuffer gLCDIOBuffer; //! FE8U = 0x3003080
 
 extern u16 gPaletteBuffer[0x200]; //! FE8U = 0x20228A8
+extern u16 gPaletteFadeBuffer[0x200]; //! FE8U = 0x202B6B0
 
 extern u16 gBg0MapBuffer[0x400]; //! FE8U = 0x2022CA8
 extern u16 gBg1MapBuffer[0x400]; //! FE8U = 0x20234A8
@@ -122,8 +123,8 @@ void SyncLCDControl(void); //! FE8U = 0x8000E9D
 u32 GetBgControlBuffer(int); //! FE8U = 0x8000F45
 u32 GetBgTileDataOffset(int); //! FE8U = 0x8000F8D
 int GetBgLocalTileIndex(int); //! FE8U = 0x8000FA5
-void SetBgTileDataOffset(int, u32); //! FE8U = 0x8000FDD
-void SetBgMapDataOffset(int, u32); //! FE8U = 0x8001005
+void SetBgTileDataOffset(int BGID, u32 charBlock); //! FE8U = 0x8000FDD
+void SetBgMapDataOffset(int BGID, u32 screenBlock); //! FE8U = 0x8001005
 void SetBgScreenSize(int); //! FE8U = 0x800104D
 
 void SyncPalettes_AdditiveFilter(int); //! FE8U = 0x8001095

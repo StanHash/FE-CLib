@@ -88,4 +88,6 @@ void* memset(void* dest, int ch, unsigned int count); //! FE8U = (0x080D1C6C+1)
 char* strcpy(char* dest, const char* src);
 unsigned strlen(const char* cstr);
 
+void* FadePalette(u16* paletteBuffer, u8 palIndex, u8 palCount, u8 darkness); //! FE8U = 0x80712B1
+
 #endif // GBAFE_OTHER_H

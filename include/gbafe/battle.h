@@ -160,9 +160,15 @@ extern struct BattleHit* gBattleHitIterator;
 
 // Functions
 
+void CheckBattleUnitLevelUp(struct BattleUnit* bu); //! FE8U = 0x802BA29
+void UpdateUnitFromBattle(Unit* u, struct BattleUnit* bu); //! FE8U = 0x802C1ED
 int GetStatIncrease(int growth); //! FE8U = 0x802B9A1
 
 int BattleUnit_ShouldDisplayWpnBroke(struct BattleUnit* bu); //! FE8U = 0x807A771
 int BattleUnit_ShouldDisplayWRankUp(struct BattleUnit* bu); //! FE8U = 0x802C1B1
+
+void InitBattleUnit(struct BattleUnit* bu, struct Unit* u); //! FE8U = 0x802A585
+
+int IsBattleDeamonActive(); //! FE8U = 0x804FDA1
 
 #endif // GBAFE_BATTLE_H
